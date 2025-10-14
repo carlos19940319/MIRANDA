@@ -124,7 +124,7 @@ nav {
   position: fixed;
   top: calc(var(--header-height) + 10px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-90%);
   width: 10%;
   max-width: 1200px;
   height: 5vh;
