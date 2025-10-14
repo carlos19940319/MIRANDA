@@ -358,7 +358,7 @@ animation: aparecer 2.5s ease-out;
 
 .welcome-text h2 {
 
-margin: 10px 0;
+margin: 2px 0;
 
 color: var(--color-principal);
 
@@ -368,7 +368,7 @@ font-size: clamp(1.4rem, 3vw, 2rem);
 
 .welcome-text p {
 
-margin: 0;
+margin: 2;
 
 font-size: clamp(0.95rem, 1.6vw, 1.05rem);
 
