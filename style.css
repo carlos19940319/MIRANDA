@@ -211,8 +211,10 @@ main {
   border-radius: 400px;
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 }
-/* =========================== */
-/* 🔹 Grid de tarjetas */
+
+
+
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -220,7 +222,6 @@ main {
   margin-top: clamp(10px, 3vw, 40px);
 }
 
-/* Tarjeta base */
 .card {
   position: relative;
   border-radius: 20px;
@@ -228,31 +229,34 @@ main {
   text-align: center;
   box-shadow: 0 0px 5px 2px rgba(114, 47, 55, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100% auto;   /* ✅ Imagen completa, sin recorte */
-  background-color: #000;       /* fondo en caso de espacio */
-  padding: 15px;
+  background-color: #000;
 }
 
-/* Overlay para texto */
-.card::after {
-  content: "";
+/* Imagen ocupa todo el ancho y mantiene proporción */
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* ✅ Mantiene proporción y no recorta */
+}
+
+/* Overlay degradado solo en la parte inferior */
+.card .content {
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25); /* semi-transparente */
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0)); 
+  color: var(--color-principal);
+  text-align: center;
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
 }
 
-/* Texto sobre overlay */
+/* Texto */
 .card h2,
 .card p,
 .card .price {
-  position: relative;
-  z-index: 1;
-  color: var(--color-principal);
   margin: 5px 0;
 }
 
@@ -262,39 +266,12 @@ main {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-
-/* 🔹 Fondos individuales por tarjeta */
-.card.margarita {
-  background-image: url("img/IMG-20251014-WA0078.jpg");
-}
-
-.card.pepperoni {
-  background-image: url("img/Screenshot_20251014-105747.WhatsApp.png");
-}
-
-.card.arugula {
-  background-image: url("img/las-mejores-redes-sociales.jpg");
-}
-
-.card.serrano {
-  background-image: url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg");
-}
-
-.card.tresquesos {
-  background-image: url("img/tresquesos.jpg");
-}
-
-.card.mexicana {
-  background-image: url("img/mexicana.jpg");
-}
-
-.card.champinones {
-  background-image: url("img/champinones.jpg");
-}
 /* Precio */
 .price {
   font-weight: 800;
 }
+
+
 
 /* 📍 Footer */
 footer {
