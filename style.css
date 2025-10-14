@@ -219,7 +219,7 @@ main {
 
 .img-bienvenida {
   width: 100%;
-  max-width: 500px;
+  max-width: 300px;
   height: auto;
   border-radius: 400px;
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
