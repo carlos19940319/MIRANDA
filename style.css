@@ -266,11 +266,11 @@ main {
 
 /* Fondos individuales por tarjeta */
 .card.margarita {
-  background: var(--color-fondo-tarjeta) url("img/IMG-20251014-WA0078.jpg") no-repeat center center;
+  background: var(--color-fondo-tarjeta) url("img/Screenshot_20251014-105747.WhatsApp.png") no-repeat center center;
 }
 
 .card.pepperoni {
-  background: var(--color-fondo-tarjeta) url("img/pepperoni.jpg") no-repeat center center;
+  background: var(--color-fondo-tarjeta) url("img/las-mejores-redes-sociales.jpg") no-repeat center center;
 }
 
 .card.arugula {
@@ -278,7 +278,7 @@ main {
 }
 
 .card.serrano {
-  background: var(--color-fondo-tarjeta) url("img/serrano.jpg") no-repeat center center;
+  background: var(--color-fondo-tarjeta) url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg") no-repeat center center;
 }
 
 .card.tresquesos {
