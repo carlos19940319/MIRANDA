@@ -145,12 +145,12 @@ nav a {
   gap: 6px;
   white-space: nowrap;
   text-decoration: none;
-  color: var(--color-secundario);
+  color: #ffffff;
   font-weight: 700;
   font-size: clamp(1rem, 1.8vw, 1.2rem);
   padding: 6px 10px; /* ajustado al texto */
   border-radius: 8px;
-  background: linear-gradient(145deg, #fff, #e6e6e6);
+  background: linear-gradient(145deg, #25D366, #075E54);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
 }
