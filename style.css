@@ -130,12 +130,6 @@ nav {
   height: 5vh;
   z-index: 1001;
 
-  
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  backdrop-filter: blur(20px);
-
   flex-wrap: nowrap;
   overflow: hidden;
 }
