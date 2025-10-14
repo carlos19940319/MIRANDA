@@ -126,7 +126,7 @@ nav {
   top: calc(var(--header-height) + 0px);
   left: 50%;
   transform: translateX(-50%);
-  width: 85%;
+  width: 40%;
   max-width: 1200px;
   height: 5vh;
   z-index: 1001;
@@ -221,7 +221,7 @@ main {
   width: 100%;
   max-width: 500px;
   height: auto;
-  border-radius: 500px;
+  border-radius: 400px;
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
   
 }
