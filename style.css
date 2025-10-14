@@ -112,7 +112,6 @@ header .redes img {
 header .redes img:hover {
   transform: scale(1.1);
 }
-
 /* 📍 NAV fijo debajo del header */
 nav {
   display: flex;
@@ -120,16 +119,17 @@ nav {
   align-items: center;
   gap: 10px;
   padding: 7px;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: calc(var(--header-height) + 10px);
-  left: 10%;
+  left: 50%;
   transform: translateX(-50%);
   width: 10%;
-  max-width: 1000px;
+  max-width: 1200px;
   height: 5vh;
   z-index: 1001;
+
 
   /* fondo con opacidad igual que antes */
   background-color: var(--navbar-bg);
