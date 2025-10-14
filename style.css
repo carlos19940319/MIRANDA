@@ -222,11 +222,11 @@ border-radius: 8px;
 
 position: fixed;
 
-top: calc(var(--header-height) + 5px);
+top: calc(var(--header-height) + 2px);
 
 left: 50%;
 
-transform: translateX(-90%);
+transform: translateX(-50%);
 
 width: 10%;
 
