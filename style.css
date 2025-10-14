@@ -213,10 +213,8 @@ main {
 }
 
 
-
-
 /* =========================== */
-/* 🔹 Tarjetas: fondo individual + overlay + hover zoom */
+/* 🔹 Grid de tarjetas */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -224,91 +222,67 @@ main {
   margin-top: clamp(10px, 3vw, 40px);
 }
 
+/* Tarjeta base */
 .card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  text-align: center;
   border-radius: 20px;
   overflow: hidden;
+  text-align: center;
   box-shadow: 0 0px 5px 2px rgba(114, 47, 55, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;  /* 🔹 mantiene la imagen completa */
-  aspect-ratio: auto;        /* 🔹 se adapta a proporción real */
-  padding: 15px;
-  background-color: #000;    /* fondo si sobra espacio */
+  background-color: #000; /* Fondo en caso de espacio */
 }
 
-/* Para que la tarjeta se alargue según el contenido visual */
-.card::before {
-  content: "";
+/* Imagen completa, mantiene proporción, ocupa todo el ancho */
+.card img {
+  width: 100%;
+  height: auto;
   display: block;
-  padding-top: 60%; /* 🔹 altura base; se ajusta con el contenido */
+  object-fit: contain; /* ✅ Sin recorte */
+  border-radius: 20px 20px 0 0;
 }
 
-/* Overlay para que el texto resalte */
-.card::after {
-  content: "";
+/* Contenedor de texto con sombreado semi-transparente */
+.card .content {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.45); /* 🔹 sombreado semi-transparente */
+  backdrop-filter: blur(2px);       /* 🔹 suaviza el fondo */
+  color: var(--color-principal);
+  border-radius: 0 0 20px 20px;
+  text-align: center;
+  z-index: 1;
 }
 
-/* Texto sobre overlay */
+/* Títulos y párrafos */
 .card h2,
 .card p,
 .card .price {
-  position: relative;
-  z-index: 1;
-  color: var(--color-principal);
   margin: 5px 0;
 }
 
-/* Hover efecto zoom */
+/* Hover con zoom */
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Fondos individuales por tarjeta */
-.card.margarita {
-  background-image: url("img/Screenshot_20251014-105747.WhatsApp.png");
-}
-
-.card.pepperoni {
-  background-image: url("img/las-mejores-redes-sociales.jpg");
-}
-
-.card.arugula {
-  background-image: url("img/arugula.jpg");
-}
-
-.card.serrano {
-  background-image: url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg");
-}
-
-.card.tresquesos {
-  background-image: url("img/tresquesos.jpg");
-}
-
-.card.mexicana {
-  background-image: url("img/mexicana.jpg");
-}
-
-.card.champinones {
-  background-image: url("img/champinones.jpg");
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 /* Precio */
 .price {
   font-weight: 800;
 }
+
+/* =========================== */
+/* 🔹 Fondos individuales para referencia (ya no necesarios si usas <img>) */
+.card.margarita img { src: url("img/Screenshot_20251014-105747.WhatsApp.png"); }
+.card.pepperoni img { src: url("img/las-mejores-redes-sociales.jpg"); }
+.card.arugula img { src: url("img/arugula.jpg"); }
+.card.serrano img { src: url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg"); }
+.card.tresquesos img { src: url("img/tresquesos.jpg"); }
+.card.mexicana img { src: url("img/mexicana.jpg"); }
+.card.champinones img { src: url("img/champinones.jpg"); }
 
 
 
