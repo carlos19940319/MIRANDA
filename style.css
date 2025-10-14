@@ -6,7 +6,7 @@
   --navbar-bg: rgba(197, 0, 0, 0.6);
   --fondo-img: url("img/FONDO1410.jpg");
   --fondo-header-img: url("img/TITULO.jpg");
-  --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");    
+  --fondo-nav-img: url("img/f9653340-7806-11ee-bcbc-b524174ba5c7jpg");
   --fondo-opacidad: 0.3;
 
   /* alturas controladas */
@@ -40,19 +40,19 @@ body::before {
   width: 100%;
   height: 100%;
   background:
-  linear-gradient(
-    180deg,
-    rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
-    rgba(12, 19, 32, var(--fondo-opacidad)) 100%
-  ),
-  var(--fondo-img);
+    linear-gradient(
+      180deg,
+      rgba(7, 16, 33, var(--fondo-opacidad)) 0%,
+      rgba(12, 19, 32, var(--fondo-opacidad)) 100%
+    ),
+    var(--fondo-img);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
 }
 
-/* 📌 Header */
+/* 📌 Header: logo, título y redes */
 header {
   display: flex;
   align-items: center;
@@ -92,13 +92,14 @@ header h1, header h2, header .titulo {
   animation: brilloSuave 3s infinite alternate;
 }
 
-/* Redes */
+/* Contenedor de redes */
 header .redes {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
+/* Iconos de redes sociales */
 header .redes img {
   width: 35px;
   height: 35px;
@@ -110,7 +111,7 @@ header .redes img:hover {
   transform: scale(1.1);
 }
 
-/* 📍 NAV */
+/* 📍 NAV fijo debajo del header */
 nav {
   display: flex;
   justify-content: space-around;
@@ -128,7 +129,7 @@ nav {
   z-index: 1001;
 }
 
-/* 📌 BOTONES DE NAVEGACIÓN */
+/* 📌 BOTONES DE NAVEGACIÓN AJUSTADOS */
 nav a {
   flex: 0 0 auto;
   min-width: 60px;
@@ -147,16 +148,6 @@ nav a {
   background: linear-gradient(145deg, #25D366, #075E54);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
-}
-
-@media (max-width: 768px) {
-  nav a {
-    min-width: 45px;
-    max-width: 100px;
-    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
-    padding: 4px 6px;
-    gap: 4px;
-  }
 }
 
 nav a:hover {
@@ -221,7 +212,8 @@ main {
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 }
 
-/* 🔹 TARJETAS MEJORADAS */
+/* =========================== */
+/* 🔹 Tarjetas: fondo individual + overlay + hover zoom */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -231,30 +223,32 @@ main {
 
 .card {
   position: relative;
-  min-height: 300px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 15px;
   border-radius: 20px;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   background-size: cover;
   background-position: center;
 }
 
+/* Overlay para el texto */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.25);
   border-radius: 20px;
   pointer-events: none;
   z-index: 0;
 }
 
+/* Texto sobre overlay */
 .card h2,
 .card p,
 .card .price {
@@ -262,54 +256,46 @@ main {
   z-index: 1;
   color: var(--color-principal);
   margin: 5px 0;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
+/* Hover efecto zoom */
 .card:hover {
-  transform: scale(1.06) translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Fondos individuales */
+/* Fondos individuales por tarjeta */
 .card.margarita {
-  background: var(--color-fondo-tarjeta) url("img/Screenshot_20251014-105747.WhatsApp.png
-") no-repeat center center;
-  background-size: cover;
+  background: var(--color-fondo-tarjeta) url("img/IMG-20251014-WA0078.jpg") no-repeat center center;
 }
 
 .card.pepperoni {
-  background: var(--color-fondo-tarjeta) url("img/las-mejores-redes-sociales.jpg") no-repeat center center;
-  background-size: cover;
+  background: var(--color-fondo-tarjeta) url("img/pepperoni.jpg") no-repeat center center;
 }
 
 .card.arugula {
-  background: var(--color-fondo-tarjeta) url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg") no-repeat center center;
-  background-size: cover;
+  background: var(--color-fondo-tarjeta) url("img/arugula.jpg") no-repeat center center;
 }
 
 .card.serrano {
   background: var(--color-fondo-tarjeta) url("img/serrano.jpg") no-repeat center center;
-  background-size: cover;
 }
 
 .card.tresquesos {
   background: var(--color-fondo-tarjeta) url("img/tresquesos.jpg") no-repeat center center;
-  background-size: cover;
 }
 
 .card.mexicana {
   background: var(--color-fondo-tarjeta) url("img/mexicana.jpg") no-repeat center center;
-  background-size: cover;
 }
 
 .card.champinones {
   background: var(--color-fondo-tarjeta) url("img/champinones.jpg") no-repeat center center;
-  background-size: cover;
 }
 
+/* Precio */
 .price {
   font-weight: 800;
-  font-size: 1.1rem;
 }
 
 /* 📍 Footer */
@@ -392,6 +378,11 @@ footer .btn-whatsapp:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes zoom {
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @keyframes brilloSuave {
   0% { text-shadow: 0 0 5px var(--color-secundario); }
   50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
@@ -402,7 +393,7 @@ header h1, header img {
   animation: brilloSuave 3s infinite alternate;
 }
 
-/* Quitar focus */
+/* 🔹 Quitar efecto verdoso al hacer clic */
 header img.logo:focus,
 .carousel button:focus,
 nav a:focus {
