@@ -212,6 +212,7 @@ main {
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 }
 
+
 /* =========================== */
 /* 🔹 Tarjetas: fondo individual + overlay + hover zoom */
 .grid {
@@ -233,8 +234,10 @@ main {
   text-align: center;
   box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: contain;   /* ✅ Imagen completa, sin recortar */
+  background-color: #000;     /* ✅ Color de fondo visible si sobra espacio */
 }
 
 /* Overlay para el texto */
@@ -266,37 +269,40 @@ main {
 
 /* Fondos individuales por tarjeta */
 .card.margarita {
-  background: var(--color-fondo-tarjeta) url("img/Screenshot_20251014-105747.WhatsApp.png") no-repeat center center;
+  background-image: url("img/Screenshot_20251014-105747.WhatsApp.png");
 }
 
 .card.pepperoni {
-  background: var(--color-fondo-tarjeta) url("img/las-mejores-redes-sociales.jpg") no-repeat center center;
+  background-image: url("img/las-mejores-redes-sociales.jpg");
 }
 
 .card.arugula {
-  background: var(--color-fondo-tarjeta) url("img/arugula.jpg") no-repeat center center;
+  background-image: url("img/arugula.jpg");
 }
 
 .card.serrano {
-  background: var(--color-fondo-tarjeta) url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg") no-repeat center center;
+  background-image: url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg");
 }
 
 .card.tresquesos {
-  background: var(--color-fondo-tarjeta) url("img/tresquesos.jpg") no-repeat center center;
+  background-image: url("img/tresquesos.jpg");
 }
 
 .card.mexicana {
-  background: var(--color-fondo-tarjeta) url("img/mexicana.jpg") no-repeat center center;
+  background-image: url("img/mexicana.jpg");
 }
 
 .card.champinones {
-  background: var(--color-fondo-tarjeta) url("img/champinones.jpg") no-repeat center center;
+  background-image: url("img/champinones.jpg");
 }
 
 /* Precio */
 .price {
   font-weight: 800;
 }
+
+
+
 
 /* 📍 Footer */
 footer {
