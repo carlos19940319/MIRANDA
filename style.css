@@ -296,17 +296,6 @@ main {
   background-image: url("img/champinones.jpg");
 }
 
-/* =========================== */
-/* 🔹 Fondos individuales para referencia (ya no necesarios si usas <img>) */
-.card.margarita img { src: url("img/Screenshot_20251014-105747.WhatsApp.png"); }
-.card.pepperoni img { src: url("img/las-mejores-redes-sociales.jpg"); }
-.card.arugula img { src: url("img/arugula.jpg"); }
-.card.serrano img { src: url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg"); }
-.card.tresquesos img { src: url("img/tresquesos.jpg"); }
-.card.mexicana img { src: url("img/mexicana.jpg"); }
-.card.champinones img { src: url("img/champinones.jpg"); }
-
-
 
 /* 📍 Footer */
 footer {
