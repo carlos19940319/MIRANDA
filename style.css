@@ -262,10 +262,6 @@ main {
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Precio */
-.price {
-  font-weight: 800;
-}
 
 /* 🔹 Fondos individuales por tarjeta */
 .card.margarita {
@@ -295,7 +291,10 @@ main {
 .card.champinones {
   background-image: url("img/champinones.jpg");
 }
-
+/* Precio */
+.price {
+  font-weight: 800;
+}
 
 /* 📍 Footer */
 footer {
