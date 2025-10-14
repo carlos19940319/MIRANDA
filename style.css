@@ -130,8 +130,6 @@ nav {
   height: 5vh;
   z-index: 1001;
 
-  flex-wrap: nowrap;
-  overflow: hidden;
 }
 
 
