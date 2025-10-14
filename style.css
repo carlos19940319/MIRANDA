@@ -277,12 +277,12 @@ main {
 }
 
 .card.pepperoni {
-  background: var(--color-fondo-tarjeta) url("img/pepperoni.jpg") no-repeat center center;
+  background: var(--color-fondo-tarjeta) url("img/las-mejores-redes-sociales.jpg") no-repeat center center;
   background-size: cover;
 }
 
 .card.arugula {
-  background: var(--color-fondo-tarjeta) url("img/arugula.jpg") no-repeat center center;
+  background: var(--color-fondo-tarjeta) url("img/truco-secreto-google-maps-casi-nadie-conoce-puede-ayudarte-planificar-viajes-como-experto-3237494.jpg") no-repeat center center;
   background-size: cover;
 }
 
