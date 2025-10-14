@@ -234,19 +234,19 @@ main {
 
 /* Imagen ocupa todo el ancho y mantiene proporción */
 .card img {
-  width: 100%;     /* ocupa todo el ancho de la tarjeta */
-  height: auto;    /* la altura se ajusta automáticamente según la proporción */
+  width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover; /* se puede usar contain si quieres que no se recorte nada */
+  object-fit: cover;  /* ocupa todo el ancho sin recortar */
 }
 
-/* Overlay degradado solo en la parte inferior */
+/* Overlay oscuro detrás del texto */
 .card .content {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+  background: rgba(0, 0, 0, 0.6);  /* 🔹 oscuro y semi-transparente */
   color: var(--color-principal);
   text-align: center;
   z-index: 1;
