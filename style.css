@@ -126,10 +126,11 @@ nav {
   top: calc(var(--header-height) + 0px);
   left: 50%;
   transform: translateX(-50%);
-  width: 40%;
+  width: 10%;
   max-width: 1200px;
   height: 5vh;
   z-index: 1001;
+
   /* fondo con opacidad igual que antes */
   background-color: var(--navbar-bg);
   background-image: var(--fondo-nav-img); /* opcional */
@@ -146,7 +147,7 @@ nav {
 nav a {
   flex: 1 1 auto;
   min-width: 64px;
-  max-width: 240px;
+  max-width: 200px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -181,7 +182,6 @@ nav a:focus {
   outline: none;
   box-shadow: none;
 }
-
 /* 📌 Main */
 main {
   max-width: 1100px;
@@ -219,7 +219,7 @@ main {
 
 .img-bienvenida {
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   height: auto;
   border-radius: 400px;
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
@@ -365,3 +365,4 @@ nav a:focus {
   box-shadow: none;
 }
 /* =========================== */
+
