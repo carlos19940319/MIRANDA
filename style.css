@@ -403,7 +403,7 @@ box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 }
 /* Fondos individuales para cada tarjeta */
 .card.margarita {
-  background: var(--color-fondo-tarjeta) url("img/FONDO14.jpg") no-repeat center center;
+  background: var(--color-fondo-tarjeta) url("img/IMG-20251014-WA0078.jpg") no-repeat center center;
   background-size: cover;
 }
 
