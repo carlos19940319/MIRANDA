@@ -213,6 +213,8 @@ main {
 }
 
 
+
+
 /* =========================== */
 /* 🔹 Tarjetas: fondo individual + overlay + hover zoom */
 .grid {
@@ -224,28 +226,35 @@ main {
 
 .card {
   position: relative;
-  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 15px;
+  text-align: center;
   border-radius: 20px;
   overflow: hidden;
-  text-align: center;
-  box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1);
+  box-shadow: 0 0px 5px 2px rgba(114, 47, 55, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;   /* ✅ Imagen completa, sin recortar */
-  background-color: #000;     /* ✅ Color de fondo visible si sobra espacio */
+  background-size: contain;  /* 🔹 mantiene la imagen completa */
+  aspect-ratio: auto;        /* 🔹 se adapta a proporción real */
+  padding: 15px;
+  background-color: #000;    /* fondo si sobra espacio */
 }
 
-/* Overlay para el texto */
+/* Para que la tarjeta se alargue según el contenido visual */
 .card::before {
+  content: "";
+  display: block;
+  padding-top: 60%; /* 🔹 altura base; se ajusta con el contenido */
+}
+
+/* Overlay para que el texto resalte */
+.card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   pointer-events: none;
   z-index: 0;
@@ -264,7 +273,7 @@ main {
 /* Hover efecto zoom */
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Fondos individuales por tarjeta */
@@ -300,7 +309,6 @@ main {
 .price {
   font-weight: 800;
 }
-
 
 
 
