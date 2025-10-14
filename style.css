@@ -401,57 +401,58 @@ border-radius: 400px;
 box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 
 }
-
-/* 📌 Grid */
-
-.grid {
-
-display: grid;
-
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
-gap: 15px;
-
-margin-top: clamp(10px, 3vw, 40px);
-
+/* Fondos individuales para cada tarjeta */
+.card.margarita {
+  background: var(--color-fondo-tarjeta) url("img/margarita.jpg") no-repeat center center;
+  background-size: cover;
 }
 
-/* Tarjeta */
-
-.card {
-
-background: var(--color-fondo-tarjeta) url("img/leña.jpg") no-repeat center center;
-
-background-size: cover;
-
-border-radius: 20px;
-
-padding: 5px;
-
-text-align: center;
-
-box-shadow: 0 0px 5px 2px rgba(114, 47,55, 1);
-
-overflow: hidden;
-
+.card.pepperoni {
+  background: var(--color-fondo-tarjeta) url("img/pepperoni.jpg") no-repeat center center;
+  background-size: cover;
 }
 
-.card img {
+.card.arugula {
+  background: var(--color-fondo-tarjeta) url("img/arugula.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-width: 98%;
+.card.serrano {
+  background: var(--color-fondo-tarjeta) url("img/serrano.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-height: auto;
+.card.tresquesos {
+  background: var(--color-fondo-tarjeta) url("img/tresquesos.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-max-height: 200px;
+.card.mexicana {
+  background: var(--color-fondo-tarjeta) url("img/mexicana.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-object-fit: cover;
+.card.champinones {
+  background: var(--color-fondo-tarjeta) url("img/champinones.jpg") no-repeat center center;
+  background-size: cover;
+}
 
-border-radius: 20px;
+/* Opcional: overlay para que el texto resalte */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* ajusta opacidad a tu gusto */
+  border-radius: 20px;
+  pointer-events: none;
+}
 
-margin-bottom: 10px;
-
-box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 8);
-
+.card h2,
+.card p,
+.card .price {
+  position: relative; /* sobre el overlay */
+  color: var(--color-principal);
+  z-index: 1;
 }
 
 .price {
