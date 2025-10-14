@@ -262,7 +262,7 @@ main {
 
 /* Hover efecto zoom */
 .card:hover {
-  transform: scale(2.03);
+  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
