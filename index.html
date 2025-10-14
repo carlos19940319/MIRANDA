@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -7,8 +8,12 @@
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 
+
 <!-- Favicon -->
 <link rel="icon" href="img/PRINCIPAL.png" type="image/png">
+
+
+</script>
 </head>
 <body>
 
@@ -19,6 +24,7 @@
   <img src="img/PRINCIPAL.png" alt="Logo" class="logo">
   <h2 class="titulo">Miranda Dev Studio.</h2>
   <div class="redes">
+  
     <a href="https://www.facebook.com/share/1ELta8Ed9h/" target="_blank">
       <img src="img/facce.png" alt="Facebook" class="icono-red">
     </a>
@@ -27,9 +33,17 @@
   <a href="https://wa.me/5217221383605?text=Hola%20quiero%20más%20información%20sobre%20su%20pizzería"
        target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:5px 10px; background:#25d366; color:#fff; font-size:12px; font-weight:bold; border-radius:50px; text-decoration:none;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:20px; height:20px;">Haz clic aquí
-  </a>
+    </a>
+
 </header>
-<nav>
+<!-- Datos de las pestañas -->
+<nav class="nav">
+  <a href="info.html">Diseños</a>
+
+
+
+
+
 
 <!-- Botón para mostrar/ocultar menú -->
 <div class="menu-toggle">☰ Menú</div>
@@ -39,10 +53,10 @@
   <a href="info.html">Diseños</a>
   <a href="servicios.html">Servicios</a>
   <a href="contacto.html">Contacto</a>
+</nav>
 
-
-<!-- Estilos del menú -->
 <style>
+  /* Botón de menú */
   .menu-toggle {
     display: inline-block;
     padding: 10px 15px;
@@ -50,9 +64,9 @@
     color: white;
     cursor: pointer;
     user-select: none;
-    margin: 10px 0;
   }
 
+  /* Navegación oculta por defecto */
   .nav {
     display: none;
     background: #f2f2f2;
@@ -70,12 +84,12 @@
     background-color: #ddd;
   }
 
+  /* Mostrar la navegación cuando se active */
   .nav.active {
     display: block;
   }
 </style>
 
-<!-- Script del menú -->
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
@@ -84,6 +98,11 @@
     nav.classList.toggle('active');
   });
 </script>
+
+
+
+
+  
 </nav>
 <!-- texto de bienvenida-->
 <main class="contenido">
@@ -94,6 +113,7 @@
   <p><font color="white">
 “Más información y ejemplos de nuestro trabajo disponibles en la pestaña ‘Información’.” ✅
 </p>
+
 </main>
 
 <footer style="width:100%; background:rgba(0,0,0,0.5); color:#fff; text-align:center; padding:12px 8px; box-sizing:border-box; font-family:Arial,sans-serif;">
@@ -112,7 +132,7 @@
   </ul>
 </div>
 
-<!-- Estilos del footer -->
+<!-- Estilos -->
 <style>
   .open-anim {
     animation: zoomEstado 0.5s ease forwards;
@@ -136,8 +156,9 @@
   }
 </style>
 
-<!-- Script del reloj y estado -->
+<!-- Script -->
 <script>
+  // Actualiza el reloj cada segundo
   function actualizarReloj() {
     const reloj = document.getElementById("reloj");
     const ahora = new Date();
@@ -149,10 +170,11 @@
 
   let ultimoEstado = "";
 
+  // Actualiza el estado Abierto/Cerrado
   function actualizarEstado() {
     const estado = document.getElementById("estado");
     const ahora = new Date();
-    const hoy = ahora.getDay();
+    const hoy = ahora.getDay(); // 0 = domingo, 1 = lunes, ..., 6 = sábado
     const ahoraMin = ahora.getHours() * 60 + ahora.getMinutes();
 
     let abierto = [1,2,3,4,5,6].includes(hoy) && ahoraMin >= 8*60 && ahoraMin < 20*60;
@@ -174,6 +196,7 @@
     }
   }
 
+  // Resalta el día actual
   function resaltarDia() {
     const dias = document.querySelectorAll("#dias li");
     const hoy = new Date().getDay();
@@ -187,6 +210,7 @@
     actualizarEstado();
   }
 
+  // Ajusta colores según el fondo y resalta domingo en rojo
   function ajustarColores() {
     const dias = document.querySelectorAll("#dias li");
     let bgColor = window.getComputedStyle(document.body).backgroundColor || "rgb(255,255,255)";
@@ -205,15 +229,18 @@
     dias.forEach(li => {
       if (li.classList.contains("dia-actual")) {
         if (li.dataset.dia.includes("0")) {
+          // Domingo en rojo
           li.style.backgroundColor = "rgba(255,0,0,0.5)";
           li.style.color = "#fff";
         } else {
+          // Días de semana en amarillo
           li.style.backgroundColor = brightness > 128 ? "rgba(241,196,15,0.5)" : "rgba(255,255,0,0.5)";
         }
       }
     });
   }
 
+  // Ejecuta funciones al cargar la página
   window.onload = () => {
     actualizarReloj();
     resaltarDia();
@@ -224,7 +251,12 @@
   };
 </script>
 
+
+
+  </div>
 </footer>
-</div> <!-- cierre de page-transition -->
+
+</div> <!-- ✅ cierre del contenedor .page-transition -->
+
 </body>
 </html>
