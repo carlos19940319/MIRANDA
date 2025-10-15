@@ -56,21 +56,29 @@ body::before {
 
 
 /* Header Adaptativo */
+
 header.header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;             /* espacio entre elementos */
-  flex-wrap: nowrap;      /* mantener todo en línea */
+  gap: 12px;             
+  flex-wrap: nowrap;      
   padding: 8px 16px;
   height: var(--header-height);
-  background-color: rgba(0,0,0,0.7);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1002;
-  overflow-x: auto;       /* scroll horizontal si no cabe */
+  overflow-x: auto;
+
+  /* 🔹 Fondo con tu imagen y capa de opacidad */
+  background: 
+    linear-gradient(rgba(0, 0, 0, var(--fondo-opacidad)), rgba(0, 0, 0, var(--fondo-opacidad))),
+    var(--fondo-header-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 header.header img.logo {
