@@ -51,20 +51,22 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
- 
-/* ================= Header principal ultra-responsivo ================= */
+ /* ================= Header principal ultra-responsivo ================= */
 header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: clamp(8px, 2vw, 16px);     /* espacio flexible entre elementos */
-  padding: clamp(6px, 2vw, 16px); /* padding adaptable */
+
+  /* Más espacio interno arriba y abajo para los "hijitos" */
+  padding: clamp(12px, 3vw, 24px) clamp(6px, 2vw, 16px); /* padding: vertical horizontal */
+
   color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: clamp(50px, 10vw, 80px); /* altura adaptable */
+  height: auto; /* auto para que se ajuste al contenido + padding */
   z-index: 1002;
 
   /* Fondo con opacidad e imagen opcional */
@@ -134,7 +136,7 @@ header .redes a.whatsapp img {
 /* ---------------- Media Query extra para pantallas muy pequeñas ---------------- */
 @media (max-width: 320px) {
   header {
-    padding: 4px 8px;  /* reduce padding al mínimo */
+    padding: 8px 8px;  /* padding mínimo para móviles muy pequeños */
     gap: 6px;          /* reduce espacio entre elementos */
   }
   header h1, header h2, header .titulo {
@@ -144,6 +146,8 @@ header .redes a.whatsapp img {
     height: clamp(16px, 5vw, 28px); /* iconos más pequeños en pantallas muy pequeñas */
   }
 }
+
+
 
 
 
