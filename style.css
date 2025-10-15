@@ -52,110 +52,98 @@ body::before {
   z-index: -1;
 }
  
-/* ================= Header principal ================= */
+/* ================= Header principal ultra-responsivo ================= */
 header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 12px;
-  padding: 8px 16px;
+  gap: clamp(8px, 2vw, 16px);     /* espacio flexible entre elementos */
+  padding: clamp(6px, 2vw, 16px); /* padding adaptable */
   color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
+  height: clamp(50px, 10vw, 80px); /* altura adaptable */
   z-index: 1002;
 
-  flex-wrap: nowrap;   /* todo en una sola línea */
-  overflow-x: hidden;  /* evita scroll horizontal */
-}
-
-/* ---------------- Logo ---------------- */
-header img.logo {
-  height: clamp(24px, 6vw, 50px); /* adaptable */
-  width: auto;
-  flex-shrink: 0; /* no se comprime demasiado */
-}
-
-/* ---------------- Título ---------------- */
-header h2 {
-  font-size: clamp(0.8rem, 2vw, 1.5rem); /* se reduce automáticamente */
-  margin: 0;
-  white-space: nowrap; /* mantiene en una línea */
-  flex-shrink: 1;      /* se encoge si hace falta */
-  min-width: 0;        /* permite que se reduzca correctamente */
-}
-
-/* ---------------- Contenedor de redes ---------------- */
-header .redes {
-  display: flex;
-  gap: 8px;
-  margin-left: auto;   /* empuja los botones a la derecha */
-  flex-shrink: 1;      /* se encoge si hace falta */
-  min-width: 0;        /* evita overflow */
-}
-
-/* Links de redes (Facebook, Instagram, WhatsApp, etc.) */
-header .redes a img {
-  height: clamp(20px, 4vw, 32px); /* adaptativo */
-  width: auto;
-  flex-shrink: 0; /* no se reduce demasiado */
-}
-
-/* Botón WhatsApp */
-header .redes a.whatsapp img {
-  height: clamp(28px, 5vw, 40px);
-  width: auto;
-  flex-shrink: 0; /* mantiene proporción y visibilidad */
-}
-
-  /* fondo por defecto con posibilidad de imagen */
-  background-color: rgba(0,0,0,0.7); /* misma opacidad que antes */
-  background-image: var(--fondo-header-img); /* opcional */
+  /* Fondo con opacidad e imagen opcional */
+  background-color: rgba(0,0,0,0.7);
+  background-image: var(--fondo-header-img);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: overlay; /* mantiene la opacidad */
+  background-blend-mode: overlay;
+
+  flex-wrap: nowrap;   /* todo en línea */
+  overflow-x: hidden;  /* sin scroll horizontal */
 }
 
-/* Logo principal */
+/* ---------------- Logo adaptativo ---------------- */
 header img.logo {
-  width: 60px;
-  height: auto;
+  height: clamp(24px, 8vw, 60px); /* escala incluso en pantallas muy pequeñas */
+  width: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+  flex-shrink: 0; /* no se comprime demasiado */
 }
 
-/* Título junto al logo */
+/* ---------------- Título adaptativo ---------------- */
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  font-size: clamp(0.8rem, 4vw, 2rem); /* se reduce suavemente */
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
+  white-space: nowrap; /* mantiene horizontal */
+  flex-shrink: 1;      /* se reduce si hace falta */
+  min-width: 0;        /* permite reducción correcta */
 }
 
-/* Contenedor de redes */
+/* ---------------- Contenedor de redes adaptativo ---------------- */
 header .redes {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: clamp(4px, 3vw, 12px); /* espacio flexible entre iconos */
+  margin-left: auto;   /* empuja a la derecha */
+  flex-shrink: 1;      /* se encoge si hace falta */
+  min-width: 0;        /* permite reducción correcta */
 }
 
-/* Iconos de redes sociales */
+/* ---------------- Iconos de redes adaptativos ---------------- */
 header .redes img {
-  width: 35px;
-  height: 35px;
+  height: clamp(18px, 6vw, 35px); /* escalable en todo tipo de pantalla */
+  width: auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 header .redes img:hover {
   transform: scale(1.1);
 }
 
+/* ---------------- Botón WhatsApp adaptativo ---------------- */
+header .redes a.whatsapp img {
+  height: clamp(22px, 7vw, 40px); /* tamaño adaptable incluso en pantallas muy pequeñas */
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* ---------------- Media Query extra para pantallas muy pequeñas ---------------- */
+@media (max-width: 320px) {
+  header {
+    padding: 4px 8px;  /* reduce padding al mínimo */
+    gap: 6px;          /* reduce espacio entre elementos */
+  }
+  header h1, header h2, header .titulo {
+    font-size: clamp(0.7rem, 3.5vw, 1.2rem); /* título más pequeño pero legible */
+  }
+  header .redes img, header .redes a.whatsapp img {
+    height: clamp(16px, 5vw, 28px); /* iconos más pequeños en pantallas muy pequeñas */
+  }
+}
 
 
 
