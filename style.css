@@ -268,6 +268,7 @@ main {
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 }
 
+
 /* ================= Contenedor de tarjetas ================= */
 .grid {
   display: grid;
@@ -305,11 +306,10 @@ main {
 .grid .card:nth-child(7) { animation-delay: 0.12s; }
 .grid .card:nth-child(8) { animation-delay: 0.14s; }
 
-/* Imagen */
+/* Imagen adaptativa sin recortes */
 .card img {
-  width: 100%;
-  height: clamp(200px, 20vw, 280px);
-  object-fit: cover;
+  width: 100%;   /* ocupa todo el ancho de la tarjeta */
+  height: auto;  /* altura proporcional al ancho */
   display: block;
   transition: all 0.4s ease;
 }
@@ -411,6 +411,14 @@ main {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+
+
+
+
+
+
+
 
 /* ================= Responsive ================= */
 @media (max-width: 900px) {
