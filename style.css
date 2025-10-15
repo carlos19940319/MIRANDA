@@ -123,6 +123,8 @@ header .redes img:hover {
 
 
 
+
+
 /* 📍 NAV fijo debajo del header */
 nav {
   display: flex;
@@ -131,7 +133,6 @@ nav {
   gap: 10px;
   padding: 7px;
   border-radius: 8px;
-  box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
   top: calc(var(--header-height) + 0px);
   left: 50%;
@@ -141,19 +142,14 @@ nav {
   height: 5vh;
   z-index: 1001;
 
-  /* fondo con opacidad igual que antes */
-  background-color: var(--navbar-bg);
-  background-image: var(--fondo-nav-img); /* opcional */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  backdrop-filter: blur(20px);
-
-  flex-wrap: nowrap;
+  /* 🔹 Fondo totalmente transparente */
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
   overflow: hidden;
 }
 
+/* Enlaces del menú */
 nav a {
   flex: 1 1 auto;
   min-width: 64px;
@@ -174,6 +170,7 @@ nav a {
   transition: transform 0.10s ease-in-out, box-shadow 0.10s ease-in-out;
 }
 
+/* Efectos hover/activo */
 nav a:hover {
   transform: translateY(1px) scale(1.03);
   box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
@@ -192,7 +189,6 @@ nav a:focus {
   outline: none;
   box-shadow: none;
 }
-
   
 
 /* ================= Main ================= */
