@@ -68,21 +68,23 @@ header {
   z-index: 1002;
 
   flex-wrap: nowrap;   /* todo en una sola línea */
+  overflow-x: hidden;  /* evita scroll horizontal */
 }
 
 /* ---------------- Logo ---------------- */
 header img.logo {
-  height: clamp(30px, 6vw, 50px); /* ajustable según pantalla */
+  height: clamp(24px, 6vw, 50px); /* adaptable */
   width: auto;
-  flex-shrink: 0; /* no se comprime */
+  flex-shrink: 0; /* no se comprime demasiado */
 }
 
 /* ---------------- Título ---------------- */
 header h2 {
-  font-size: clamp(0.9rem, 2vw, 1.5rem); /* se reduce automáticamente */
+  font-size: clamp(0.8rem, 2vw, 1.5rem); /* se reduce automáticamente */
   margin: 0;
-  white-space: nowrap; /* mantiene en una sola línea */
+  white-space: nowrap; /* mantiene en una línea */
   flex-shrink: 1;      /* se encoge si hace falta */
+  min-width: 0;        /* permite que se reduzca correctamente */
 }
 
 /* ---------------- Contenedor de redes ---------------- */
@@ -91,31 +93,21 @@ header .redes {
   gap: 8px;
   margin-left: auto;   /* empuja los botones a la derecha */
   flex-shrink: 1;      /* se encoge si hace falta */
+  min-width: 0;        /* evita overflow */
 }
 
 /* Links de redes (Facebook, Instagram, WhatsApp, etc.) */
 header .redes a img {
-  height: clamp(20px, 4vw, 32px); /* adaptativo según pantalla */
+  height: clamp(20px, 4vw, 32px); /* adaptativo */
   width: auto;
   flex-shrink: 0; /* no se reduce demasiado */
 }
 
-/* ---------------- Botón WhatsApp ---------------- */
+/* Botón WhatsApp */
 header .redes a.whatsapp img {
-  height: clamp(28px, 5vw, 40px); /* tamaño adaptable */
+  height: clamp(28px, 5vw, 40px);
   width: auto;
   flex-shrink: 0; /* mantiene proporción y visibilidad */
-}
-
-/* ---------------- Texto de redes (si hay) ---------------- */
-header .redes a span {
-  font-size: clamp(0.7rem, 1.5vw, 1rem);
-  white-space: nowrap;
-}
-
-/* ---------------- Scroll horizontal opcional ---------------- */
-header {
-  overflow-x: auto; /* si algo no cabe, permite scroll suave */
 }
 
   /* fondo por defecto con posibilidad de imagen */
