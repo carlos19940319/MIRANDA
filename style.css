@@ -52,64 +52,110 @@ body::before {
   z-index: -1;
 }
 
-/* 📌 Header: logo, título y redes */
-header {
+
+
+
+/* Header Adaptativo */
+header.header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;             /* espacio entre elementos */
+  flex-wrap: nowrap;      /* mantener todo en línea */
   padding: 8px 16px;
-  color: #ffffff;
+  height: var(--header-height);
+  background-color: rgba(0,0,0,0.7);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
   z-index: 1002;
-  background-color: rgba(0,0,0,0.7);
-  background-image: var(--fondo-header-img);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
+  overflow-x: auto;       /* scroll horizontal si no cabe */
 }
 
-/* Logo principal */
-header img.logo {
+header.header img.logo {
   width: 60px;
   height: auto;
-  border-radius: 50px;
-  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+  border-radius: 50%;
+  flex-shrink: 0;         /* no reducir demasiado */
 }
 
-/* Título junto al logo */
-header h1, header h2, header .titulo {
-  margin: 0;
-  padding: 0;
+header.header h2.titulo {
+  font-size: 1rem;        /* fallback para navegadores antiguos */
   font-size: clamp(1rem, 1.8vw, 1.8rem);
-  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;    /* evitar salto de línea */
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  animation: brilloSuave 3s infinite alternate;
 }
 
-/* Contenedor de redes */
-header .redes {
+header.header .redes {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-/* Iconos de redes sociales */
-header .redes img {
+header.header .redes img.icono-red {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
-header .redes img:hover {
+header.header .redes img.icono-red:hover {
   transform: scale(1.1);
 }
+
+header.header .whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: #25d366;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  flex-shrink: 0;         /* evitar reducción extrema */
+}
+
+header.header .whatsapp img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  header.header {
+    gap: 6px;
+    padding: 4px 8px;
+  }
+
+  header.header img.logo {
+    width: 50px;
+  }
+
+  header.header h2.titulo {
+    font-size: 0.9rem;
+  }
+
+  header.header .redes img.icono-red {
+    width: 28px;
+    height: 28px;
+  }
+
+  header.header .whatsapp {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  header.header .whatsapp img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
 
 /* 📍 NAV fijo debajo del header */
 nav {
