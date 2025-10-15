@@ -79,7 +79,7 @@ header .header-contenido {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(8px, 2vw, 25px);
+  gap: clamp(8px, 1.2vw, 15px);
   width: 95%; /* deja un pequeño margen a los lados */
   transform-origin: center;
   flex-shrink: 0;
