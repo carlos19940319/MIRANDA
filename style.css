@@ -164,7 +164,7 @@ nav a {
   gap: 6px;               /* menos separación entre icono y texto, si hay */
   white-space: nowrap;
   text-decoration: none;
-  color: var(--color-secundario);
+  color: #ffffff; /* blanco */
   font-weight: 700;
   font-size: clamp(0.8rem, 1.5vw, 0.95rem);  /* un poquito más pequeño opcional */
   padding: 10px 4px;      /* mismo alto, menos ancho */
