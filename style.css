@@ -98,12 +98,12 @@ header h1, header h2, header .titulo {
 header .redes {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 2vw, 12px);
+  gap: clamp(5px, 2vw, 15px);
 }
 
 /* Iconos de redes sociales */
 header .redes img {
-  width: clamp(30px, 4vw, 40px);
+  width: clamp(40px, 5vw, 40px);
   height: auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
