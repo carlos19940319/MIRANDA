@@ -310,8 +310,8 @@ main {
 .card img {
   width: 100%;
   height: auto;
-  min-height: 250px;
-  max-height: 400px;
+  min-height: 200px;
+  max-height: 300px;
   display: block;
   transition: all 0.4s ease;
 }
