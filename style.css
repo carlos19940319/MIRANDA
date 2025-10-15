@@ -123,47 +123,55 @@ header .redes img:hover {
 
 
 
-
-
-
-
 /* 📍 NAV fijo debajo del header */
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: clamp(6px, 1.5vw, 10px);
+  gap: 10px;
   padding: 7px;
   border-radius: 8px;
+  box-shadow: 1px 8px 20px #320000 inset, 0px 0px 8px -6px #FFFFFF;
   position: fixed;
-  top: var(--header-height);
+  top: calc(var(--header-height) + 0px);
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(80%, 90%, 100%);
+  width: 85%;
   max-width: 1200px;
   height: 5vh;
   z-index: 1001;
+
+  /* fondo con opacidad igual que antes */
+  background-color: var(--navbar-bg);
+  background-image: var(--fondo-nav-img); /* opcional */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  backdrop-filter: blur(20px);
+
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
-/* BOTONES DE NAVEGACIÓN AJUSTADOS */
 nav a {
-  flex: 0 0 auto;
-  min-width: 60px;
-  max-width: 140px;
+  flex: 1 1 auto;
+  min-width: 64px;
+  max-width: 240px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   white-space: nowrap;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--color-secundario);
   font-weight: 700;
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
-  padding: 6px 10px;
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
+  padding: 10px 14px;
   border-radius: 8px;
-  background: linear-gradient(145deg, #25D366, #075E54);
+  background: linear-gradient(145deg,#fff,#e6e6e6);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  transition: transform 0.10s ease-in-out, box-shadow 0.10s ease-in-out;
 }
 
 nav a:hover {
@@ -184,6 +192,8 @@ nav a:focus {
   outline: none;
   box-shadow: none;
 }
+
+  
 
 /* ================= Main ================= */
 main {
