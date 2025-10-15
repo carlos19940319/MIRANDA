@@ -216,10 +216,9 @@ main {
 /* 📦 Contenedor de tarjetas */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
   margin-top: clamp(10px, 3vw, 40px);
-  align-items: stretch;
 }
 
 /* 🎴 Tarjeta general */
@@ -231,7 +230,6 @@ main {
   background-color: #000;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: stretch;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 0px 5px 2px rgba(255, 255, 255, 1);
@@ -240,7 +238,6 @@ main {
   animation: fadeInUp 0.6s forwards;
   cursor: pointer;
   z-index: 1;
-  min-height: 100%;
 }
 
 /* Animación escalonada */
@@ -256,8 +253,7 @@ main {
 /* Imagen */
 .card img {
   width: 100%;
-  height: auto;
-  max-height: 220px;
+  height: 220px;
   object-fit: cover;
   display: block;
   transition: all 0.4s ease;
@@ -362,24 +358,24 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  header img.logo { width: 36px; }
-  header h1, header h2, header .titulo { font-size: clamp(0.9rem, 4vw, 1.6rem); }
-  nav { width: 95%; gap: 6px; }
-  nav a { font-size: clamp(0.75rem, 2.5vw, 1rem); padding: 6px 10px; }
-  .img-bienvenida { width: 95%; max-width: 400px; }
-  .grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-  .card img { max-height: 180px; }
-  .card h2 { font-size: 1rem; }
-  .card p.desc { font-size: 0.85rem; }
-  .price { font-size: 0.85rem; padding: 3px 8px; }
-  footer .footer-botones a { font-size: 12px; padding: 6px 10px; }
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .card img { height: 160px; }
+  .card h2 { font-size: 0.9rem; }
+  .card .desc { font-size: 0.82rem; }
+  .price { font-size: 0.9rem; padding: 3px 8px; }
 }
 
-@media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; gap: 10px; }
-  .card img { max-height: 150px; }
-}
+
+
+
+
+
+
+
 
 /* 📍 Footer */
 footer {
