@@ -149,26 +149,36 @@ nav {
   overflow: hidden;
 }
 
-/* Enlaces del menú */
+
+
+
+
+/* Enlaces del menú — versión más compacta horizontalmente */
 nav a {
   flex: 1 1 auto;
   min-width: 64px;
-  max-width: 240px;
+  max-width: 180px;      /* reduce el ancho máximo */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;               /* menos separación entre icono y texto, si hay */
   white-space: nowrap;
   text-decoration: none;
   color: var(--color-secundario);
   font-weight: 700;
-  font-size: clamp(0.8rem, 1.6vw, 1rem);
-  padding: 10px 6px;
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);  /* un poquito más pequeño opcional */
+  padding: 10px 4px;      /* mismo alto, menos ancho */
   border-radius: 8px;
   background: linear-gradient(145deg,#25D366,#075E54);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   transition: transform 0.10s ease-in-out, box-shadow 0.10s ease-in-out;
 }
+
+
+
+
+
+
 
 /* Efectos hover/activo */
 nav a:hover {
