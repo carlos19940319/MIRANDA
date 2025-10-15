@@ -51,13 +51,7 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
-
-
-
-
-
-
-
+ 
 
 /* 📌 Header: logo, título y redes */
 header {
@@ -119,8 +113,6 @@ header .redes img {
 header .redes img:hover {
   transform: scale(1.1);
 }
-
-
 
 
 
