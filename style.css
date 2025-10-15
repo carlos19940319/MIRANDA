@@ -87,7 +87,7 @@ header .header-contenido {
 
 /* Logo principal */
 header img.logo {
-  width: clamp(30px, 8vw, 60px);
+  width: clamp(25px, 6vw, 45px);
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000 inset, 0px 0px 10px 1px #fff;
@@ -114,7 +114,7 @@ header .titulo {
 header .redes {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 1.5vw, 12px);
+  gap: clamp(6px, 1.5vw, 12px);
   flex-shrink: 1;
 }
 
