@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
   // 1️⃣ Fade-in inicial
   document.body.classList.add('show');
@@ -22,6 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         window.location.href = url; // luego redirige
       }, 250); // coincide con la transición CSS
+    });
+  });
+
+  // 4️⃣ Toggle zoom para tarjetas
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Quitar zoom de otras tarjetas
+      cards.forEach(c => {
+        if (c !== card) c.classList.remove('zoomed');
+      });
+      // Alternar zoom en la tarjeta clickeada
+      card.classList.toggle('zoomed');
     });
   });
 });
