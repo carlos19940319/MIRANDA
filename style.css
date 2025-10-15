@@ -54,73 +54,64 @@ body::before {
 
 
 
-/* ================= Header responsive ================= */
+
+
+
+
+
+/* 📌 Header: logo, título y redes */
 header {
-  width: 100%;
-  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 8px 16px;
+  color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: var(--header-height);
   z-index: 1002;
-  background-color: rgba(0,0,0,0.7);
-  background-image: var(--fondo-header-img);
+
+  /* fondo por defecto con posibilidad de imagen */
+  background-color: rgba(0,0,0,0.7); /* misma opacidad que antes */
+  background-image: var(--fondo-header-img); /* opcional */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  overflow: hidden;
-  display: flex;
-  justify-content: center; /* centra el contenido */
-  align-items: center;
-}
-
-/* Contenedor del contenido del header */
-header .header-contenido {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(8px, 1.2vw, 15px);
-  width: 95%; /* deja un pequeño margen a los lados */
-  transform-origin: center;
-  flex-shrink: 0;
+  background-blend-mode: overlay; /* mantiene la opacidad */
 }
 
 /* Logo principal */
 header img.logo {
-  width: clamp(15px, 5vw, 35px);
+  width: 60px;
   height: auto;
   border-radius: 50px;
-  box-shadow: 0px 1px 5px #000 inset, 0px 0px 10px 1px #fff;
-  flex-shrink: 1;
+  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-/* Título del header */
-header h1,
-header h2,
-header .titulo {
+/* Título junto al logo */
+header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: clamp(0.8rem, 2vw, 1.8rem);
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  white-space: nowrap;
-  flex-grow: 1;
-  flex-shrink: 1;
-  text-align: center;
-  overflow: visible;
+  animation: brilloSuave 3s infinite alternate;
 }
 
-/* Contenedor de redes sociales */
+/* Contenedor de redes */
 header .redes {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 1.5vw, 12px);
-  flex-shrink: 1;
+  gap: 6px;
 }
 
+/* Iconos de redes sociales */
 header .redes img {
-  width: clamp(32px, 6vw, 40px);
-  height: auto;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
@@ -129,40 +120,9 @@ header .redes img:hover {
   transform: scale(1.1);
 }
 
-/* Botón de WhatsApp */
-header .btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(4px, 1vw, 8px);
-  padding: clamp(3px, 0.8vw, 8px) clamp(6px, 2vw, 12px);
-  font-size: clamp(0.7rem, 1.5vw, 1rem);
-  background-color: #25D366;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 1;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-header .btn-whatsapp img {
-  width: clamp(16px, 3vw, 28px);
-  height: auto;
-  flex-shrink: 1;
-}
 
-header .btn-whatsapp:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
 
-/* ================= Escalado uniforme ================= */
-@media (max-width: 1200px) { header .header-contenido { transform: scale(0.95); } }
-@media (max-width: 1000px) { header .header-contenido { transform: scale(0.9); } }
-@media (max-width: 800px)  { header .header-contenido { transform: scale(0.85); } }
-@media (max-width: 600px)  { header .header-contenido { transform: scale(0.8); } }
-@media (max-width: 400px)  { header .header-contenido { transform: scale(0.75); } }
 
 
 
