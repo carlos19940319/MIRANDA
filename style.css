@@ -52,12 +52,14 @@ body::before {
   z-index: -1;
 }
 
+
+
+
 /* 📌 Header: logo, título y redes */
 header {
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
   align-items: center;
-  justify-content: space-between; /* Separar logo/titulo y redes */
+  justify-content: space-between; /* Mantiene espacio entre logo+título y redes */
   gap: 15px;
   padding: 8px 16px;
   color: #ffffff;
@@ -65,7 +67,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto; /* Se adapta según contenido */
+  height: var(--header-height);
   z-index: 1002;
   background-color: rgba(0,0,0,0.7);
   background-image: var(--fondo-header-img);
@@ -74,46 +76,52 @@ header {
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   box-sizing: border-box;
+  flex-wrap: nowrap; /* Evita que los elementos bajen de línea */
 }
 
-/* Contenedor de logo + título */
+/* Contenedor logo + título */
 header .logo-titulo {
   display: flex;
-  flex-wrap: wrap; /* Permite que título baje si pantalla es muy pequeña */
   align-items: center;
   gap: 10px;
+  flex-shrink: 1; /* Permite reducir tamaño si falta espacio */
+  min-width: 0; /* Permite que el contenido se comprima correctamente */
 }
 
 /* Logo principal */
 header img.logo {
-  width: clamp(40px, 8vw, 60px); /* Se adapta entre 40px y 60px */
+  width: clamp(40px, 8vw, 60px); /* Se ajusta entre 40px y 60px según pantalla */
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+  flex-shrink: 0; /* Evita que se haga demasiado pequeño */
 }
 
 /* Título junto al logo */
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: clamp(1rem, 1.8vw, 1.8rem); /* Se adapta según ancho de pantalla */
+  font-size: clamp(1rem, 1.8vw, 1.8rem); /* Se adapta al ancho */
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
-  line-height: 1.2;
+  white-space: nowrap; /* Evita que se rompa en varias líneas */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Opcional: "..." si no cabe */
+  flex-shrink: 1; /* Permite reducir tamaño del texto */
 }
 
 /* Contenedor de redes */
 header .redes {
   display: flex;
-  flex-wrap: wrap; /* Evita que los iconos se encimen */
   align-items: center;
   gap: 6px;
+  flex-shrink: 0; /* Evita que se enciman los iconos */
 }
 
 /* Iconos de redes sociales */
 header .redes img {
-  width: clamp(25px, 6vw, 35px);
+  width: clamp(25px, 6vw, 35px); /* Se ajusta automáticamente */
   height: auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
@@ -123,10 +131,12 @@ header .redes img:hover {
   transform: scale(1.1);
 }
 
-/* Opcional: espaciado para que el contenido no quede debajo del header */
+/* Espacio debajo del header para que no tape contenido */
 body {
-  padding-top: 80px; /* Ajustar según la altura máxima del header */
+  padding-top: var(--header-height);
 }
+
+
 
 
 /* 📍 NAV fijo debajo del header */
