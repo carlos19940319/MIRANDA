@@ -51,12 +51,11 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
-
 /* ================= Header responsive ================= */
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* separa logo/título de redes y botón */
   gap: clamp(10px, 2vw, 30px);
   padding: clamp(8px, 2vw, 16px);
   color: #ffffff;
@@ -72,26 +71,34 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-  flex-wrap: nowrap; /* mantener todo en una línea */
+  flex-wrap: nowrap; /* 🚫 evita que se baje algo */
+  overflow: hidden;  /* previene desplazamiento forzado */
 }
 
 /* Logo principal */
 header img.logo {
-  width: clamp(40px, 8vw, 50px);
+  width: clamp(40px, 8vw, 60px);
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+  flex-shrink: 0; /* 🚫 evita que se encoja */
 }
 
 /* Título junto al logo */
-header h1, header h2, header .titulo {
+header h1,
+header h2,
+header .titulo {
   margin: 0;
   padding: 0;
   font-size: clamp(1rem, 1.8vw, 1.8rem);
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
-  white-space: nowrap; /* evitar salto de línea */
+  white-space: nowrap; /* 🚫 evita salto de línea */
+  flex-grow: 1; /* 🧭 usa espacio disponible sin empujar */
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 🔸 si no cabe, no se baja */
 }
 
 /* Contenedor de redes */
@@ -99,11 +106,12 @@ header .redes {
   display: flex;
   align-items: center;
   gap: clamp(5px, 2vw, 15px);
+  flex-shrink: 0;
 }
 
 /* Iconos de redes sociales */
 header .redes img {
-  width: clamp(40px, 5vw, 40px);
+  width: clamp(35px, 5vw, 40px);
   height: auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
@@ -125,7 +133,8 @@ header .btn-whatsapp {
   color: #fff;
   border-radius: 8px;
   text-decoration: none;
-  white-space: nowrap; /* mantener texto en una línea */
+  white-space: nowrap; /* 🚫 mantiene texto en una línea */
+  flex-shrink: 0; /* no se aplasta ni baja */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
