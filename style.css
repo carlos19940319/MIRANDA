@@ -306,13 +306,21 @@ main {
 .grid .card:nth-child(7) { animation-delay: 0.12s; }
 .grid .card:nth-child(8) { animation-delay: 0.14s; }
 
-/* Imagen adaptativa sin recortes */
+
+
+
+
+/* Imagen adaptativa más grande */
 .card img {
-  width: 100%;   /* ocupa todo el ancho de la tarjeta */
-  height: auto;  /* altura proporcional al ancho */
+  width: 100%;             /* ocupa todo el ancho de la tarjeta */
+  height: auto;            /* altura proporcional al ancho */
+  min-height: 250px;       /* mínimo alto de la imagen */
+  max-height: 400px;       /* opcional: límite máximo si quieres */
   display: block;
   transition: all 0.4s ease;
 }
+
+
 
 /* Contenido debajo de la imagen con degradado */
 .card .content {
