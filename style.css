@@ -55,8 +55,9 @@ body::before {
 /* 📌 Header: logo, título y redes */
 header {
   display: flex;
+  flex-wrap: wrap; /* Permite que los elementos bajen si no caben */
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Separar logo/titulo y redes */
   gap: 15px;
   padding: 8px 16px;
   color: #ffffff;
@@ -64,7 +65,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
+  height: auto; /* Se adapta según contenido */
   z-index: 1002;
   background-color: rgba(0,0,0,0.7);
   background-image: var(--fondo-header-img);
@@ -72,11 +73,20 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  box-sizing: border-box;
+}
+
+/* Contenedor de logo + título */
+header .logo-titulo {
+  display: flex;
+  flex-wrap: wrap; /* Permite que título baje si pantalla es muy pequeña */
+  align-items: center;
+  gap: 10px;
 }
 
 /* Logo principal */
 header img.logo {
-  width: 60px;
+  width: clamp(40px, 8vw, 60px); /* Se adapta entre 40px y 60px */
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
@@ -86,23 +96,25 @@ header img.logo {
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  font-size: clamp(1rem, 1.8vw, 1.8rem); /* Se adapta según ancho de pantalla */
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
+  line-height: 1.2;
 }
 
 /* Contenedor de redes */
 header .redes {
   display: flex;
+  flex-wrap: wrap; /* Evita que los iconos se encimen */
   align-items: center;
   gap: 6px;
 }
 
 /* Iconos de redes sociales */
 header .redes img {
-  width: 35px;
-  height: 35px;
+  width: clamp(25px, 6vw, 35px);
+  height: auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
@@ -110,6 +122,12 @@ header .redes img {
 header .redes img:hover {
   transform: scale(1.1);
 }
+
+/* Opcional: espaciado para que el contenido no quede debajo del header */
+body {
+  padding-top: 80px; /* Ajustar según la altura máxima del header */
+}
+
 
 /* 📍 NAV fijo debajo del header */
 nav {
