@@ -87,7 +87,7 @@ header .header-contenido {
 
 /* Logo principal */
 header img.logo {
-  width: clamp(25px, 6vw, 45px);
+  width: clamp(15px, 5vw, 35px);
   height: auto;
   border-radius: 50px;
   box-shadow: 0px 1px 5px #000 inset, 0px 0px 10px 1px #fff;
