@@ -245,10 +245,12 @@ main {
 }
 
 
+
+
 /* ================= Contenedor de tarjetas ================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr 1fr; /* siempre 2 columnas */
   gap: 15px;
   margin-top: clamp(10px, 3vw, 40px);
 }
@@ -282,21 +284,15 @@ main {
 .grid .card:nth-child(7) { animation-delay: 0.12s; }
 .grid .card:nth-child(8) { animation-delay: 0.14s; }
 
-
-
-
-
 /* Imagen adaptativa más grande */
 .card img {
-  width: 100%;             /* ocupa todo el ancho de la tarjeta */
-  height: auto;            /* altura proporcional al ancho */
-  min-height: 250px;       /* mínimo alto de la imagen */
-  max-height: 400px;       /* opcional: límite máximo si quieres */
+  width: 100%;
+  height: auto;
+  min-height: 250px;
+  max-height: 400px;
   display: block;
   transition: all 0.4s ease;
 }
-
-
 
 /* Contenido debajo de la imagen con degradado */
 .card .content {
@@ -364,10 +360,10 @@ main {
   text-shadow: 1px 1px 2px rgba(197,0,0,0.6);
 }
 
-/* Hover efecto zoom */
+/* Hover efecto zoom y sombra color vino */
 .card:hover {
   transform: scale(1.04);
-  box-shadow: 0 8px 20px rgba(197, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6); /* sombra color vino */
 }
 
 .card:hover h2 {
@@ -375,10 +371,10 @@ main {
   transition: color 0.3s ease;
 }
 
-/* 🔹 Clase toggle zoom */
+/* 🔹 Clase toggle zoom con sombra vino más intensa */
 .card.zoomed {
   transform: scale(1.1);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+  box-shadow: 0 14px 40px rgba(128, 0, 0, 0.8); /* sombra vino intensa */
   z-index: 10;
 }
 
@@ -396,17 +392,8 @@ main {
   100% { background-position: 0% 50%; }
 }
 
-
-
-
-
-
-
-
-
 /* ================= Responsive ================= */
 @media (max-width: 900px) {
-  .grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
   .card img { height: clamp(140px, 18vw, 200px); }
   .card h2 { font-size: clamp(1rem, 2vw, 1.5rem); }
   .card p.desc { font-size: clamp(0.75rem, 1.3vw, 0.9rem); }
@@ -414,7 +401,11 @@ main {
 }
 
 @media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid { gap: 10px; } /* siempre 2 columnas, solo ajusta el gap */
+}
+
+
+
   header { gap: 12px; padding: 10px; }
   header h1, header .titulo { font-size: 1.1rem; }
   header img.logo { width: 60px; }
