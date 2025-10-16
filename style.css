@@ -215,7 +215,6 @@ nav {
 @media (max-width: 576px)  { :root { --pos-nav: 65px; } }
 @media (max-width: 400px)  { :root { --pos-nav: 60px; } }
 
-
 /* =========================
    📌 NAV OPTIMIZADO (Botón único)
 ========================= */
@@ -246,11 +245,11 @@ nav a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 1 auto;       /* permite encogerse si falta espacio */
-  min-width: 0;         /* elimina restricción de ancho mínimo */
+  flex: 0 0 auto;       /* evita que el botón se encoja */
+  min-width: 120px;     /* ancho mínimo legible */
   max-width: 100%;      /* nunca más ancho que nav */
-  padding: clamp(6px, 1vw, 12px) clamp(12px, 2vw, 20px);
-  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  padding: clamp(8px, 1.5vw, 14px) clamp(16px, 3vw, 24px);
+  font-size: clamp(0.8rem, 1.6vw, 1rem);
   font-weight: 700;
   color: #ffffff;
   text-decoration: none;
@@ -283,15 +282,17 @@ nav a:focus {
 ========================= */
 @media (max-width: 480px) {
   nav a {
-    padding: 4px 6px;
-    font-size: clamp(0.6rem, 2vw, 0.9rem);
+    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 18px);
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
+    min-width: 100px;  /* evita que se encoja demasiado */
   }
 }
 
 @media (max-width: 350px) {
   nav a {
-    padding: 3px 5px;
-    font-size: clamp(0.55rem, 2.5vw, 0.85rem);
+    padding: clamp(5px, 1.5vw, 8px) clamp(10px, 3vw, 14px);
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    min-width: 90px;   /* ancho mínimo aceptable */
   }
 }
 
@@ -368,7 +369,7 @@ main {
   animation: fadeInUp 0.6s forwards;
 }
 
-* Escalonado de animación para varias tarjetas */
+/* Escalonado de animación para varias tarjetas */
 .grid .card:nth-child(1) { animation-delay: 0s; }
 .grid .card:nth-child(2) { animation-delay: 0.2s; }
 .grid .card:nth-child(3) { animation-delay: 0.4s; }
@@ -380,7 +381,6 @@ main {
 .grid .card:nth-child(9) { animation-delay: 1.6s; }
 .grid .card:nth-child(10) { animation-delay: 1.8s; }
 .grid .card:nth-child(11) { animation-delay: 2.0s; }
-
 /* Hover efecto zoom y sombra */
 .card:hover {
   transform: scale(1.04);
