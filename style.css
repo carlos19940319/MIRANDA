@@ -56,119 +56,71 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
+
+
+
+/* 📌 Header: logo, título y redes */
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(6px, 1vw, 10px);
-  padding: clamp(4px, 0.5rem, 10px) clamp(8px, 1.5rem, 16px);
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 8px 16px;
   color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  
-  /* 🔹 Altura automática según los elementos hijos */
-  height: auto;
-  min-height: fit-content;
-  
+  height: var(--header-height);
   z-index: 1002;
-  background-color: rgba(0,0,0,0.7);
-  background-image: var(--fondo-header-img);
+
+  /* fondo por defecto con posibilidad de imagen */
+  background-color: rgba(0,0,0,0.7); /* misma opacidad que antes */
+  background-image: var(--fondo-header-img); /* opcional */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  flex-wrap: nowrap;
-  overflow: visible; /* importante: deja crecer el contenido si los hijos son más altos */
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
+  background-blend-mode: overlay; /* mantiene la opacidad */
 }
 
-
+/* Logo principal */
 header img.logo {
-  height: clamp(36px, calc(36px + 1vw), 65px); /* altura adaptable */
-  width: auto;                                  /* ancho automático según la altura */
-  max-width: 65px;                              /* opcional, para no exceder tamaño */
-  aspect-ratio: 1 / 1;                          /* fuerza un cuadrado perfecto */
-  border-radius: 50%;                            /* círculo */
-  object-fit: cover;
-  flex-shrink: 0;
-  transition: all 0.3s ease-in-out;
+  width: 60px;
+  height: auto;
+  border-radius: 50px;
+  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
 }
 
-
-/* ---------------- TÍTULO ---------------- */
+/* Título junto al logo */
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: clamp(1rem, 1.5vw, 2rem);
-  flex-shrink: 1;
-  flex-grow: 1;
-  min-width: 100px;
-  max-width: 40%;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: all 0.3s ease-in-out;
-
-  /* 🔹 Brillo suave animado */
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   animation: brilloSuave 3s infinite alternate;
 }
 
-/* ---------------- CONTENEDOR REDES ---------------- */
+/* Contenedor de redes */
 header .redes {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 1vw, 12px);
-  flex-shrink: 0;
+  gap: 6px;
 }
 
-/* ---------------- ICONOS ---------------- */
-header .redes img,
-header .redes a.whatsapp img {
-  height: clamp(16px, 2rem, 35px);
-  width: auto;
-  max-height: 35px;
-  flex-shrink: 0;
+/* Iconos de redes sociales */
+header .redes img {
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease;
 }
-header .redes img:hover,
-header .redes a.whatsapp img:hover {
+
+header .redes img:hover {
   transform: scale(1.1);
 }
 
-/* ---------------- BOTÓN WHATSAPP SOLO ICONO ---------------- */
-header a.whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center; /* centra el icono */
-  padding: 0;              /* elimina espacio extra */
-  gap: 0;                  /* sin separación */
-  background: none;        /* elimina fondo verde */
-  color: inherit;          /* mantiene el color del header */
-  font-size: 0;            /* oculta texto */
-  border-radius: 0;        /* sin bordes redondeados */
-  text-decoration: none;
-  flex-shrink: 0;
-  white-space: nowrap;
-  transition: transform 0.3s ease-in-out;
-}
 
-/* Ajuste del icono dentro del botón */
-header a.whatsapp img {
-  width: clamp(16px, 3vw, 22px);
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Hover solo agranda el icono, sin fondo */
-header a.whatsapp:hover {
-  transform: scale(1.1);
-  background: none;
 }
 /* ---------------- MEDIA QUERIES HEADER ---------------- */
 @media (max-width: 1200px) { header h1, header h2, header .titulo { max-width: 45%; } header img.logo { max-width: 58px; } header .redes img, header .redes a.whatsapp img { max-height: 34px; } }
