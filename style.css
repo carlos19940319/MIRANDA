@@ -61,7 +61,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: clamp(8px, 1vw, 16px);
-  padding: clamp(6px, 1rem, 16px) clamp(8px, 2rem, 20px);
+  padding: clamp(4px, 0.5rem, 10px) clamp(8px, 1.5rem, 16px);
   color: #ffffff;
   position: fixed;
   top: 0;
