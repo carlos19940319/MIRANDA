@@ -144,7 +144,7 @@ header a.whatsapp {
   align-items: center;
   gap: 6px;
   padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px);
-  background: #25d366;
+
   color: #fff;
   font-size: clamp(0.7rem, 1.5vw, 0.95rem);
   font-weight: bold;
