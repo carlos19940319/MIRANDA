@@ -255,39 +255,18 @@ main {
   padding: 0 14px;
   padding-top: calc(var(--header-height) + var(--nav-height) + 10px);
 }
+
+
+
 /* ---------------- Bienvenida ---------------- */
 .welcome-text {
-  text-align: center; /* Centra el contenido */
-  color: var(--color-principal); /* Color principal de tu tema */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.35); /* Sombra más elegante */
-  animation: aparecer 2.5s ease-out forwards; /* Animación suave */
-  margin: clamp(1rem, 5vw, 2rem) 0; /* Espaciado adaptable */
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  animation: aparecer 2.5s ease-out;
 }
-
-.welcome-text h2 {
-  margin: 0 0 0.5em 0; /* Separación inferior */
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* Tamaño adaptable según pantalla */
-  line-height: 1.2; /* Mejor lectura */
-}
-
-.welcome-text p {
-  margin: 0;
-  font-size: clamp(1rem, 2vw, 1.2rem); /* Texto escalable */
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9); /* Ligero contraste con fondo */
-}
-
-/* Animación suave de aparición */
-@keyframes aparecer {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.welcome-text h2 { margin: 2px 0; color: var(--color-principal); font-size: clamp(1.4rem, 3vw, 2rem); }
+.welcome-text p { margin: 2px 0; font-size: clamp(0.95rem, 1.6vw, 1.05rem); }
 
 /* ---------------- Hero ---------------- */
 .hero { display: flex; justify-content: center; padding: 10px; width: 100%; }
