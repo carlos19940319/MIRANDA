@@ -215,37 +215,85 @@ nav {
 @media (max-width: 576px)  { :root { --pos-nav: 65px; } }
 @media (max-width: 400px)  { :root { --pos-nav: 60px; } }
 
+
 /* =========================
-   📌 ESTILO ORIGINAL DEL NAV
+   📌 NAV OPTIMIZADO (Botón único)
+========================= */
+nav {
+  display: flex;
+  justify-content: center;   /* centra el botón */
+  align-items: center;
+  gap: 6px;
+
+  /* Posición flotante bajo header */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: var(--pos-nav, 90px);
+
+  /* Adaptable al tamaño de pantalla */
+  width: auto;          /* ocupa solo lo necesario */
+  max-width: 95%;       /* nunca excede la pantalla */
+  overflow: visible;    /* asegura que el botón no se corte */
+  z-index: 1001;
+  padding: 0;           /* padding interno opcional */
+}
+
+/* =========================
+   📌 BOTÓN ÚNICO
 ========================= */
 nav a {
-  flex: 1 1 auto;
-  min-width: 64px;
-  max-width: 150px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  white-space: nowrap;
-  text-decoration: none;
-  color: #ffffff;
+  flex: 0 1 auto;       /* permite encogerse si falta espacio */
+  min-width: 0;         /* elimina restricción de ancho mínimo */
+  max-width: 100%;      /* nunca más ancho que nav */
+  padding: clamp(6px, 1vw, 12px) clamp(12px, 2vw, 20px);
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
   font-weight: 700;
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-  padding: 8px 2px;
+  color: #ffffff;
+  text-decoration: none;
   border-radius: 8px;
   background: linear-gradient(145deg,#25D366,#075E54);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
-  transition: transform 0.10s ease-in-out, box-shadow 0.10s ease-in-out;
+  white-space: nowrap;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background 0.3s ease;
 }
 
+/* Hover y activo */
 nav a:hover {
   transform: translateY(1px) scale(1.03);
   box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
 }
+nav a:active {
+  transform: translateY(0px) scale(1.2);
+}
+nav a.active {
+  color: var(--color-principal);
+  background: linear-gradient(145deg,#fff7f7,#ffecec);
+}
+nav a:focus {
+  outline: none;
+  box-shadow: none;
+}
 
-nav a:active { transform: translateY(0px) scale(1.2); }
-nav a.active { color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
-nav a:focus { outline: none; box-shadow: none; }
+/* =========================
+   📌 MEDIA QUERIES - Pantallas muy pequeñas
+========================= */
+@media (max-width: 480px) {
+  nav a {
+    padding: 4px 6px;
+    font-size: clamp(0.6rem, 2vw, 0.9rem);
+  }
+}
+
+@media (max-width: 350px) {
+  nav a {
+    padding: 3px 5px;
+    font-size: clamp(0.55rem, 2.5vw, 0.85rem);
+  }
+}
 
 
 /* =========================
@@ -273,9 +321,34 @@ main {
 .img-bienvenida { width: 100%; max-width: 500px; height: auto; border-radius: 400px; box-shadow: 0 0px 15px -2px rgba(255,255,255,1); }
 
 /* =========================
-   📌 TARJETAS / GRID
+   📌 GRID RESPONSIVO DE TARJETAS
 ========================= */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: clamp(10px, 3vw, 40px); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* se adapta según ancho */
+  gap: 15px;
+  margin-top: clamp(10px, 3vw, 40px);
+}
+/* =========================
+   📌 GRID RESPONSIVO DE TARJETAS (Mínimo 2 columnas)
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* columnas adaptables */
+  gap: 15px;
+  margin-top: clamp(10px, 3vw, 40px);
+}
+
+/* Siempre mínimo 2 columnas en pantallas muy estrechas */
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   📌 TARJETA INDIVIDUAL
+========================= */
 .card {
   position: relative;
   border-radius: 20px;
@@ -284,28 +357,45 @@ main {
   background-color: #000;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 0px 5px 2px rgba(255, 255, 255, 1);
+  cursor: pointer;
+  z-index: 1;
+
+  /* Animación inicial */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s forwards;
-  cursor: pointer;
-  z-index: 1;
 }
+
+/* Escalonado de animación para varias tarjetas */
 .grid .card:nth-child(1) { animation-delay: 0s; }
 .grid .card:nth-child(2) { animation-delay: 0.2s; }
 .grid .card:nth-child(3) { animation-delay: 0.4s; }
 .grid .card:nth-child(4) { animation-delay: 0.6s; }
 .grid .card:nth-child(5) { animation-delay: 0.8s; }
-.grid .card:nth-child(6) { animation-delay: 0.10s; }
-.grid .card:nth-child(7) { animation-delay: 0.12s; }
-.grid .card:nth-child(8) { animation-delay: 0.14s; }
+.grid .card:nth-child(6) { animation-delay: 1s; }
 
-.card img { width: 100%; height: auto; min-height: 200px; max-height: 300px; display: block; transition: all 0.4s ease; }
+/* Hover efecto zoom y sombra */
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6);
+}
+
+/* =========================
+   📌 IMAGEN RESPONSIVA
+========================= */
+.card img {
+  width: 100%;        /* ocupa todo el ancho del card */
+  height: auto;       /* altura automática según proporción */
+  display: block;
+  object-fit: contain; /* mantiene proporción sin cortar */
+}
+
+/* =========================
+   📌 CONTENIDO DE LA TARJETA
+========================= */
 .card .content {
-  position: relative;
-  width: 100%;
   padding: 16px;
   text-align: center;
   border-radius: 0 0 20px 20px;
@@ -313,11 +403,27 @@ main {
   background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
   transition: background 0.6s ease-in-out;
 }
-.card:hover .content { background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 100%); }
 
-.card h2, .card p, .card .price { margin: 6px 0; white-space: normal; word-wrap: break-word; hyphens: auto; }
-.card p.desc { font-size: clamp(0.82rem, 1.2vw, 0.92rem); line-height: 1.45; color: #f2f2f2; }
+.card:hover .content {
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 100%);
+}
 
+/* =========================
+   📌 TEXTO Y PRECIO
+========================= */
+.card h2, .card p, .card .price {
+  margin: 6px 0;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.card p.desc {
+  font-size: clamp(0.82rem, 1.2vw, 0.92rem);
+  line-height: 1.45;
+  color: #f2f2f2;
+}
+
+/* Precio con animación de gradiente */
 .price {
   font-weight: 800;
   color: #fff;
@@ -330,13 +436,29 @@ main {
   background: linear-gradient(90deg, #ff6b6b, #ff4747, #ff6b6b);
   background-size: 200% 100%;
   animation: gradientMove 3s ease infinite;
-  transition: background 0.3s ease;
 }
-.price.highlight { background: linear-gradient(90deg, #00d2ff, #3a7bd5); padding: clamp(4px,1vw,12px) clamp(10px,2vw,12px); font-weight:900; text-shadow: 1px 1px 2px rgba(197,0,0,0.6); }
 
-.card:hover { transform: scale(1.04); box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6); }
-.card:hover h2 { color: #ff6b6b; transition: color 0.3s ease; }
-.card.zoomed { transform: scale(1.1); box-shadow: 0 14px 40px rgba(128,0,0,0.8); z-index: 10; }
+.price.highlight {
+  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  padding: clamp(4px,1vw,12px) clamp(10px,2vw,12px);
+  font-weight: 900;
+  text-shadow: 1px 1px 2px rgba(197,0,0,0.6);
+}
+
+/* =========================
+   📌 ANIMACIONES
+========================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 /* =========================
    📌 FOOTER
@@ -381,5 +503,4 @@ footer .btn-mapa:hover { background-color: #a11d1d; transform: translateY(-2px);
    📌 RESPONSIVE TARJETAS
 ========================= */
 @media (max-width: 900px) { .card img { height: clamp(140px, 18vw, 200px); } .card h2 { font-size: clamp(1rem, 2vw, 1.5rem); } .card p.desc { font-size: clamp(0.75rem,1.3vw,0.9rem); } .price { font-size: clamp(0.8rem,1.5vw,0.9rem); padding: 3px 8px; } }
-@media (max-width: 600px) { .grid { gap: 10px; } }
-
+@media (max-width: 600px) { .grid { gap: 10px; } 
