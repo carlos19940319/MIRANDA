@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   // 1️⃣ Fade-in inicial
   document.body.classList.add('show');
@@ -13,14 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
     }
 
-    // 3️⃣ Fade-out al hacer clic
+    // 3️⃣ Fade-out SOLO del fondo
     link.addEventListener('click', e => {
-      e.preventDefault(); // evita cambio inmediato
+      e.preventDefault();
       const url = link.getAttribute('href');
-      document.body.classList.remove('show'); // inicia fade-out
+      const bg = document.querySelector('.background');
+      if (bg) bg.style.opacity = '0'; // desvanece solo el fondo
       setTimeout(() => {
-        window.location.href = url; // luego redirige
-      }, 250); // coincide con la transición CSS
+        window.location.href = url;
+      }, 400); // tiempo igual al CSS
     });
   });
 
@@ -28,11 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
     card.addEventListener('click', () => {
-      // Quitar 'selected' de otras tarjetas
       cards.forEach(c => {
         if (c !== card) c.classList.remove('selected');
       });
-      // Alternar 'selected' en la tarjeta clickeada
       card.classList.toggle('selected');
     });
   });
