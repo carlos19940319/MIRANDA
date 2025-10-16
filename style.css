@@ -296,9 +296,28 @@ main {
 .welcome-text h2 { margin: 2px 0; color: var(--color-principal); font-size: clamp(1.4rem, 3vw, 2rem); }
 .welcome-text p { margin: 2px 0; font-size: clamp(0.95rem, 1.6vw, 1.05rem); }
 
-/* ---------------- Hero ---------------- */
-.hero { display: flex; justify-content: center; padding: 10px; width: 100%; }
-.img-bienvenida { width: 100%; max-width: 500px; height: auto; border-radius: 400px; box-shadow: 0 0px 15px -2px rgba(255,255,255,1); }
+/* ---------------- Hero Mejorado ---------------- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(10px, 3vw, 30px); /* Padding adaptable */
+  width: 100%;
+}
+
+.img-bienvenida {
+  width: 80%;             /* Escala según contenedor */
+  max-width: 500px;       /* Tamaño máximo */
+  height: auto;
+  border-radius: 50%;     /* Circular y adaptable */
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.6); /* Sombra suave y moderna */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Animación al hover */
+}
+
+.img-bienvenida:hover {
+  transform: scale(1.05); /* Ligero zoom al pasar el cursor */
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.8); /* Sombra más intensa */
+}
 
 /* =========================
    📌 GRID RESPONSIVO DE TARJETAS
