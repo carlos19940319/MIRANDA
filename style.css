@@ -345,6 +345,14 @@ body {
 body.show {
   opacity: 1;
 }
+
+
+
+
+
+
+
+
 /* =========================
    📌 GRID RESPONSIVO DE TARJETAS
 ========================= */
@@ -355,14 +363,12 @@ body.show {
   margin-top: clamp(10px, 3vw, 40px);
 }
 
-/* Siempre mínimo 2 columnas en pantallas pequeñas */
 @media (max-width: 450px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Una columna en móviles extremos */
 @media (max-width: 400px) {
   .grid {
     grid-template-columns: 1fr;
@@ -414,10 +420,11 @@ body.show {
    📌 IMAGEN RESPONSIVA COMPLETA
 ========================= */
 .card img {
-  width: 100%;        /* ocupa todo el ancho del card */
-  height: auto;       /* altura automática según proporción */
+  width: 100%;          /* ocupa todo el ancho del card */
+  height: auto;         /* altura automática según proporción */
   display: block;
-  object-fit: contain; /* mantiene proporción sin recortar */
+  object-fit: contain;  /* mantiene toda la imagen visible sin recortar */
+  transition: all 0.5s ease;
 }
 
 /* =========================
@@ -495,19 +502,14 @@ body.show {
   left: 50% !important;
   transform: translate(-50%, -50%) scale(1.4) !important;
   z-index: 9999;
-  width: 80%;
-  max-width: 600px;
+  width: auto;          /* ancho adaptable */
+  max-width: 90%;       /* límite máximo de ancho */
+  max-height: 90%;      /* límite máximo de alto */
   box-shadow: 0 20px 40px rgba(255, 0, 0, 0.6);
-  transition: transform 0.5s ease, box-shadow 0.5s ease, top 0.5s ease, left 0.5s ease, width 0.5s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, top 0.5s ease, left 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
-.card.selected img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* se ve completa en zoom */
-}
-
-/* Fondo oscuro al hacer zoom */
+/* Overlay detrás de la tarjeta seleccionada */
 .card.selected::before {
   content: "";
   position: fixed;
@@ -518,6 +520,16 @@ body.show {
   background: rgba(0,0,0,0.5);
   z-index: -1;
 }
+
+/* Ajuste del contenido interno para no tapar imagen en zoom */
+.card.selected .content {
+  max-height: 50%;        /* contenido ocupa mitad del card */
+  overflow-y: auto;       /* scroll si hay mucho texto */
+}
+
+
+
+
 
 /* =========================
    📌 FOOTER
