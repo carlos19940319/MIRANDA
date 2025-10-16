@@ -56,10 +56,6 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
-
-/* =========================
-   📌 HEADER ULTRA AUTOAJUSTE
-========================= */
 header {
   display: flex;
   align-items: center;
@@ -71,7 +67,11 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  
+  /* 🔹 Altura automática según los elementos hijos */
   height: auto;
+  min-height: fit-content;
+  
   z-index: 1002;
   background-color: rgba(0,0,0,0.7);
   background-image: var(--fondo-header-img);
@@ -80,7 +80,7 @@ header {
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   flex-wrap: nowrap;
-  overflow: hidden;
+  overflow: visible; /* importante: deja crecer el contenido si los hijos son más altos */
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
 }
