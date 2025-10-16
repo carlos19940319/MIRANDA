@@ -86,11 +86,10 @@ header {
 }
 
 
-
 header img.logo {
-  height: clamp(36px, calc(45px + 1vw), 60px); /* altura adaptable */
+  height: clamp(36px, calc(36px + 1vw), 65px); /* altura adaptable */
   width: auto;                                  /* ancho automático según la altura */
-  max-width: 60px;                              /* opcional, para no exceder tamaño */
+  max-width: 65px;                              /* opcional, para no exceder tamaño */
   aspect-ratio: 1 / 1;                          /* fuerza un cuadrado perfecto */
   border-radius: 50%;                            /* círculo */
   object-fit: cover;
