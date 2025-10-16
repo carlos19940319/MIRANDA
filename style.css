@@ -314,22 +314,22 @@ main {
   border-radius: 400px;
   box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
 }
-
-
-
-
 /* ================= Contenedor de tarjetas ================= */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* siempre 2 columnas */
-  gap: 15px;
+  gap: clamp(10px, 2vw, 20px);
   margin-top: clamp(10px, 3vw, 40px);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 clamp(10px, 3vw, 20px);
 }
 
 /* 🎴 Tarjeta general */
 .card {
   position: relative;
-  border-radius: 20px;
+  border-radius: clamp(12px, 1.5vw, 20px);
   overflow: hidden;
   text-align: center;
   background-color: #000;
@@ -343,6 +343,8 @@ main {
   animation: fadeInUp 0.6s forwards;
   cursor: pointer;
   z-index: 1;
+  max-width: clamp(220px, 40%, 550px); /* tarjeta siempre proporcional */
+  margin: 0 auto;
 }
 
 /* Animación escalonada */
@@ -355,23 +357,24 @@ main {
 .grid .card:nth-child(7) { animation-delay: 0.12s; }
 .grid .card:nth-child(8) { animation-delay: 0.14s; }
 
-/* Imagen adaptativa más grande */
+/* Imagen adaptativa ultra fluida */
 .card img {
   width: 100%;
   height: auto;
-  min-height: 200px;
-  max-height: 300px;
+  min-height: clamp(80px, 20vw, 250px);
+  max-height: clamp(180px, 30vw, 300px);
+  object-fit: cover;
   display: block;
   transition: all 0.4s ease;
 }
 
-/* Contenido debajo de la imagen con degradado */
+/* Contenido debajo de la imagen */
 .card .content {
   position: relative;
   width: 100%;
-  padding: 16px;
+  padding: clamp(10px, 2vw, 20px);
   text-align: center;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 clamp(12px, 1.5vw, 20px) clamp(12px, 1.5vw, 20px);
   box-sizing: border-box;
   color: var(--color-principal, #fff);
   background: linear-gradient(
@@ -397,14 +400,14 @@ main {
 .card h2,
 .card p,
 .card .price {
-  margin: 6px 0;
+  margin: clamp(4px, 0.8vw, 8px) 0;
   white-space: normal;
   word-wrap: break-word;
   hyphens: auto;
 }
 
 .card p.desc {
-  font-size: clamp(0.82rem, 1.2vw, 0.92rem);
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
   line-height: 1.45;
   color: #f2f2f2;
 }
@@ -412,11 +415,11 @@ main {
 .price {
   font-weight: 800;
   color: #fff;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   padding: clamp(3px, 0.8vw, 10px) clamp(8px, 2vw, 12px);
-  border-radius: 12px;
+  border-radius: clamp(8px, 1vw, 12px);
   display: inline-block;
-  margin-top: 6px;
+  margin-top: clamp(4px, 0.8vw, 6px);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   background: linear-gradient(90deg, #ff6b6b, #ff4747, #ff6b6b);
   background-size: 200% 100%;
@@ -434,7 +437,7 @@ main {
 /* Hover efecto zoom y sombra color vino */
 .card:hover {
   transform: scale(1.04);
-  box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6); /* sombra color vino */
+  box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6);
 }
 
 .card:hover h2 {
@@ -442,19 +445,15 @@ main {
   transition: color 0.3s ease;
 }
 
-/* 🔹 Clase toggle zoom con sombra vino más intensa */
 .card.zoomed {
   transform: scale(1.1);
-  box-shadow: 0 14px 40px rgba(128, 0, 0, 0.8); /* sombra vino intensa */
+  box-shadow: 0 14px 40px rgba(128, 0, 0, 0.8);
   z-index: 10;
 }
 
 /* Animaciones */
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes gradientMove {
@@ -463,29 +462,13 @@ main {
   100% { background-position: 0% 50%; }
 }
 
-/* ================= Responsive ================= */
-@media (max-width: 900px) {
-  .card img { height: clamp(140px, 18vw, 200px); }
-  .card h2 { font-size: clamp(1rem, 2vw, 1.5rem); }
-  .card p.desc { font-size: clamp(0.75rem, 1.3vw, 0.9rem); }
-  .price { font-size: clamp(0.8rem, 1.5vw, 0.9rem); padding: 3px 8px; }
-}
-
-@media (max-width: 600px) {
-  .grid { gap: 10px; } /* siempre 2 columnas, solo ajusta el gap */
-}
-
 
 
   header { gap: 12px; padding: 10px; }
   header h1, header .titulo { font-size: 1.1rem; }
   header img.logo { width: 60px; }
   nav { width: 90%; gap: 6px; }
-  .card img { height: 160px; }
-  .card h2 { font-size: 0.9rem; }
-  .card p.desc { font-size: 0.82rem; }
-  .price { font-size: 0.9rem; padding: 3px 8px; }
-
+ 
   /* Ajuste WhatsApp */
   header .btn-whatsapp {
     font-size: clamp(0.7rem, 2vw, 0.85rem);
@@ -499,7 +482,7 @@ main {
 @media (max-width: 400px) {
   header h1, header .titulo { font-size: 1rem; }
   header img.logo { width: 50px; }
-  .grid { grid-template-columns: 1fr; }
+  
   nav { width: 95%; }
 
   /* Ajuste WhatsApp */
