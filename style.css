@@ -87,9 +87,9 @@ header {
 
 /* ---------------- LOGO ---------------- */
 header img.logo {
-  height: clamp(36px, calc(36px + 1vw), 60px);
-  width: clamp(36px, calc(36px + 1vw), 60px);
-  max-width: 60px;
+  height: clamp(36px, calc(36px + 1vw), 65px);
+  width: clamp(36px, calc(36px + 1vw), 65px);
+  max-width: 65px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
