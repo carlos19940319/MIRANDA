@@ -1,4 +1,6 @@
-/* 📌 Variables editables */
+/* =========================
+   📌 VARIABLES EDITABLES
+========================= */
 :root {
   --color-principal:  #ffffff;
   --color-secundario: #333333;
@@ -14,12 +16,16 @@
   --nav-height: 60px;
 }
 
-/* Reset box-sizing */
+/* =========================
+   📌 RESET BOX-SIZING
+========================= */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* 📍 Body y fondo */
+/* =========================
+   📌 BODY Y FONDO
+========================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -31,7 +37,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 📌 Fondo fijo universal */
 body::before {
   content: "";
   position: fixed;
@@ -51,41 +56,15 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
- 
 
-
-
-
-/* 📍 NAV fijo debajo del header */
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
-  padding: 7px;
-  border-radius: 8px;
-  position: fixed;
-  top: calc(var(--header-height) + 0px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  max-width: 1200px;
-  height: 5vh;
-  z-index: 1001;
-
-  /* 🔹 Fondo totalmente transparente */
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  overflow: hidden;
-}
-
-/* ================= Header Ultra Autoajuste ================= */
+/* =========================
+   📌 HEADER ULTRA AUTOAJUSTE
+========================= */
 header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(6px, 0.5rem, 10px); /* gap base limitado */
+  gap: clamp(8px, 1vw, 16px);
   padding: clamp(6px, 1rem, 16px) clamp(8px, 2rem, 20px);
   color: #ffffff;
   position: fixed;
@@ -103,12 +82,10 @@ header {
   flex-wrap: nowrap;
   overflow: hidden;
   box-sizing: border-box;
-
-  /* Transición suave en todo */
   transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Logo ---------------- */
+/* ---------------- LOGO ---------------- */
 header img.logo {
   height: clamp(36px, calc(36px + 1vw), 60px);
   width: clamp(36px, calc(36px + 1vw), 60px);
@@ -116,163 +93,164 @@ header img.logo {
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  flex-grow: 0;
   transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Título Ultra Adaptativo ---------------- */
+/* ---------------- TÍTULO ---------------- */
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
   font-size: clamp(0.5rem, 1.5vw, 2rem);
   flex-shrink: 1;
   flex-grow: 1;
-  min-width: 120px;
-  max-width: 50%;
+  min-width: 100px;
+  max-width: 40%;
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: clip;
-  text-align: center;
+  text-overflow: ellipsis;
   transition: all 0.3s ease-in-out;
+
+  /* 🔹 Brillo suave animado */
+  animation: brilloSuave 3s infinite alternate;
 }
 
-/* ---------------- Contenedor redes ---------------- */
+/* ---------------- CONTENEDOR REDES ---------------- */
 header .redes {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 0.5rem, 10px);
+  gap: clamp(6px, 1vw, 12px);
   flex-shrink: 0;
-  flex-grow: 0;
-  margin-left: clamp(6px, 1rem, 12px);
-  transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Iconos redes ---------------- */
+/* ---------------- ICONOS ---------------- */
 header .redes img,
 header .redes a.whatsapp img {
   height: clamp(16px, 2rem, 35px);
   width: auto;
   max-height: 35px;
   flex-shrink: 0;
-  flex-grow: 0;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
 }
-
 header .redes img:hover,
 header .redes a.whatsapp img:hover {
   transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
 }
 
-/* ---------------- Media Queries Inteligentes ---------------- */
-@media (max-width: 1200px) {
-  header h1, header h2, header .titulo {
-    max-width: 48%;
-    font-size: clamp(0.5rem, 1.4vw, 1.8rem);
-  }
-  header img.logo { max-width: 58px; }
-  header .redes img, header .redes a.whatsapp img { max-height: 34px; }
+/* ---------------- BOTÓN WHATSAPP ---------------- */
+header a.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px);
+  background: #25d366;
+  color: #fff;
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: transform 0.3s ease-in-out, background 0.3s ease;
+}
+header a.whatsapp img { width: clamp(16px, 3vw, 22px); height: auto; }
+header a.whatsapp:hover { transform: scale(1.05); background: #1ebe57; }
+
+/* ---------------- MEDIA QUERIES HEADER ---------------- */
+@media (max-width: 1200px) { header h1, header h2, header .titulo { max-width: 45%; } header img.logo { max-width: 58px; } header .redes img, header .redes a.whatsapp img { max-height: 34px; } }
+@media (max-width: 1024px) { header h1, header h2, header .titulo { max-width: 45%; font-size: clamp(0.5rem, 1.3vw, 1.6rem); } header img.logo { max-width: 55px; } header .redes img, header .redes a.whatsapp img { max-height: 32px; } }
+@media (max-width: 768px) { header h1, header h2, header .titulo { max-width: 50%; font-size: clamp(0.5rem, 2vw, 1.4rem); } header img.logo { max-width: 50px; } header .redes img, header .redes a.whatsapp img { max-height: 28px; } }
+@media (max-width: 480px) { header h1, header h2, header .titulo { max-width: 55%; font-size: clamp(0.5rem, 5vw, 1rem); } header img.logo { max-width: 42px; } header .redes img, header .redes a.whatsapp img { max-height: 26px; } }
+@media (max-width: 350px) { header h1, header h2, header .titulo { max-width: 60%; font-size: clamp(0.45rem, 4.5vw, 0.9rem); } header img.logo { max-width: 38px; } header .redes img, header .redes a.whatsapp img { max-height: 24px; } }
+@media (min-width: 1600px) { header { gap: clamp(8px, 1vw, 14px); } }
+
+/* ---------------- ESCALADO UNIFORME HEADER ---------------- */
+header .header-contenido { transform-origin: center; flex-shrink: 0; }
+@media (max-width: 1200px) { header .header-contenido { transform: scale(0.95); } }
+@media (max-width: 1000px) { header .header-contenido { transform: scale(0.9); } }
+@media (max-width: 800px)  { header .header-contenido { transform: scale(0.85); } }
+@media (max-width: 600px)  { header .header-contenido { transform: scale(0.8); } }
+@media (max-width: 400px)  { header .header-contenido { transform: scale(0.75); } }
+
+
+/* =========================
+   📌 NAV FLOTANTE (Posicionado Automático bajo el Header)
+========================= */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  padding: 7px;
+  border-radius: 8px;
+
+  /* 🔹 Ajuste de posición */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 1200px;
+  height: 5vh;
+  z-index: 1001;
+
+  /* 🔹 Mantiene tu estilo original */
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  overflow: hidden;
+
+  /* 🔹 Siempre debajo del header (ajuste adaptable por pantalla) */
+  top: var(--pos-nav, 90px);
 }
 
-@media (max-width: 1024px) {
-  header h1, header h2, header .titulo {
-    max-width: 50%;
-    font-size: clamp(0.5rem, 1.3vw, 1.6rem);
-  }
-  header img.logo { max-width: 55px; }
-  header .redes img, header .redes a.whatsapp img { max-height: 32px; }
+/* 🔹 Altura estimada del header en distintas pantallas */
+:root {
+  --pos-nav: 90px;
 }
 
-@media (max-width: 768px) {
-  header h1, header h2, header .titulo {
-    max-width: 55%;
-    font-size: clamp(0.5rem, 2vw, 1.4rem);
-  }
-  header img.logo { max-width: 50px; }
-  header .redes img, header .redes a.whatsapp img { max-height: 28px; }
-}
+@media (max-width: 1200px) { :root { --pos-nav: 80px; } }
+@media (max-width: 992px)  { :root { --pos-nav: 75px; } }
+@media (max-width: 768px)  { :root { --pos-nav: 70px; } }
+@media (max-width: 576px)  { :root { --pos-nav: 65px; } }
+@media (max-width: 400px)  { :root { --pos-nav: 60px; } }
 
-@media (max-width: 480px) {
-  header {
-    gap: clamp(2px, 3vw, 8px);
-    padding: clamp(4px, 2vw, 8px);
-  }
-  header h1, header h2, header .titulo {
-    max-width: 60%;
-    font-size: clamp(0.5rem, 5vw, 1rem);
-  }
-  header img.logo { max-width: 42px; }
-  header .redes img, header .redes a.whatsapp img { max-height: 26px; }
-}
-
-@media (max-width: 350px) {
-  header h1, header h2, header .titulo {
-    max-width: 65%;
-    font-size: clamp(0.45rem, 4.5vw, 0.9rem);
-  }
-  header img.logo { max-width: 38px; }
-  header .redes img, header .redes a.whatsapp img { max-height: 24px; }
-}
-
-/* ---------------- Ajuste Dinámico de Gaps según pantalla ---------------- */
-@media (min-width: 1600px) {
-  header {
-    gap: clamp(6px, 0.5rem, 10px); /* evita separación excesiva en pantallas enormes */
-  }
-}
-
-
-
-/* Enlaces del menú — versión más compacta horizontalmente */
+/* =========================
+   📌 ESTILO ORIGINAL DEL NAV
+========================= */
 nav a {
   flex: 1 1 auto;
   min-width: 64px;
-  max-width: 150px;      /* reduce el ancho máximo */
+  max-width: 150px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;               /* menos separación entre icono y texto, si hay */
+  gap: 6px;
   white-space: nowrap;
   text-decoration: none;
-  color: #ffffff; /* blanco */
+  color: #ffffff;
   font-weight: 700;
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);  /* un poquito más pequeño opcional */
-  padding: 8px 2px;      /* mismo alto, menos ancho */
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  padding: 8px 2px;
   border-radius: 8px;
   background: linear-gradient(145deg,#25D366,#075E54);
   box-shadow: 0px 0px 7px #000000 inset, 0px 6px 8px -3px #000000;
   transition: transform 0.10s ease-in-out, box-shadow 0.10s ease-in-out;
 }
 
-
-
-
-
-
-
-/* Efectos hover/activo */
 nav a:hover {
   transform: translateY(1px) scale(1.03);
   box-shadow: 1px 5px 10px #000000 inset, 0px 0px 8px -6px #FFFFFF;
 }
 
-nav a:active {
-  transform: translateY(0px) scale(1.2);
-}
+nav a:active { transform: translateY(0px) scale(1.2); }
+nav a.active { color: var(--color-principal); background: linear-gradient(145deg,#fff7f7,#ffecec); }
+nav a:focus { outline: none; box-shadow: none; }
 
-nav a.active {
-  color: var(--color-principal);
-  background: linear-gradient(145deg,#fff7f7,#ffecec);
-}
 
-nav a:focus {
-  outline: none;
-  box-shadow: none;
-}
-  
-
-/* ================= Main ================= */
+/* =========================
+   📌 MAIN / CONTENIDO
+========================= */
 main {
   max-width: 1100px;
   margin: 18px auto;
@@ -280,56 +258,27 @@ main {
   padding-top: calc(var(--header-height) + var(--nav-height) + 10px);
 }
 
-/* Bienvenida */
+/* ---------------- Bienvenida ---------------- */
 .welcome-text {
   text-align: center;
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   animation: aparecer 2.5s ease-out;
 }
+.welcome-text h2 { margin: 2px 0; color: var(--color-principal); font-size: clamp(1.4rem, 3vw, 2rem); }
+.welcome-text p { margin: 2px 0; font-size: clamp(0.95rem, 1.6vw, 1.05rem); }
 
-.welcome-text h2 {
-  margin: 2px 0;
-  color: var(--color-principal);
-  font-size: clamp(1.4rem, 3vw, 2rem);
-}
+/* ---------------- Hero ---------------- */
+.hero { display: flex; justify-content: center; padding: 10px; width: 100%; }
+.img-bienvenida { width: 100%; max-width: 500px; height: auto; border-radius: 400px; box-shadow: 0 0px 15px -2px rgba(255,255,255,1); }
 
-.welcome-text p {
-  margin: 2px 0;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-}
-
-/* Hero */
-.hero {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  width: 100%;
-}
-
-.img-bienvenida {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 400px;
-  box-shadow: 0 0px 15px -2px rgba(255,255,255,1);
-}
-/* ================= Contenedor de tarjetas ================= */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* siempre 2 columnas */
-  gap: clamp(10px, 2vw, 20px);
-  margin-top: clamp(10px, 3vw, 40px);
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 clamp(10px, 3vw, 20px);
-}
-
-/* 🎴 Tarjeta general */
+/* =========================
+   📌 TARJETAS / GRID
+========================= */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: clamp(10px, 3vw, 40px); }
 .card {
   position: relative;
-  border-radius: clamp(12px, 1.5vw, 20px);
+  border-radius: 20px;
   overflow: hidden;
   text-align: center;
   background-color: #000;
@@ -343,11 +292,7 @@ main {
   animation: fadeInUp 0.6s forwards;
   cursor: pointer;
   z-index: 1;
-  max-width: clamp(220px, 40%, 550px); /* tarjeta siempre proporcional */
-  margin: 0 auto;
 }
-
-/* Animación escalonada */
 .grid .card:nth-child(1) { animation-delay: 0s; }
 .grid .card:nth-child(2) { animation-delay: 0.2s; }
 .grid .card:nth-child(3) { animation-delay: 0.4s; }
@@ -357,145 +302,45 @@ main {
 .grid .card:nth-child(7) { animation-delay: 0.12s; }
 .grid .card:nth-child(8) { animation-delay: 0.14s; }
 
-/* Imagen adaptativa ultra fluida */
-.card img {
-  width: 100%;
-  height: auto;
-  min-height: clamp(80px, 20vw, 250px);
-  max-height: clamp(180px, 30vw, 300px);
-  object-fit: cover;
-  display: block;
-  transition: all 0.4s ease;
-}
-
-/* Contenido debajo de la imagen */
+.card img { width: 100%; height: auto; min-height: 200px; max-height: 300px; display: block; transition: all 0.4s ease; }
 .card .content {
   position: relative;
   width: 100%;
-  padding: clamp(10px, 2vw, 20px);
+  padding: 16px;
   text-align: center;
-  border-radius: 0 0 clamp(12px, 1.5vw, 20px) clamp(12px, 1.5vw, 20px);
-  box-sizing: border-box;
+  border-radius: 0 0 20px 20px;
   color: var(--color-principal, #fff);
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.5) 40%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
   transition: background 0.6s ease-in-out;
 }
+.card:hover .content { background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.15) 100%); }
 
-/* Hover overlay */
-.card:hover .content {
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.88) 0%,
-    rgba(0,0,0,0.55) 40%,
-    rgba(0,0,0,0.15) 100%
-  );
-}
-
-/* Texto */
-.card h2,
-.card p,
-.card .price {
-  margin: clamp(4px, 0.8vw, 8px) 0;
-  white-space: normal;
-  word-wrap: break-word;
-  hyphens: auto;
-}
-
-.card p.desc {
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
-  line-height: 1.45;
-  color: #f2f2f2;
-}
+.card h2, .card p, .card .price { margin: 6px 0; white-space: normal; word-wrap: break-word; hyphens: auto; }
+.card p.desc { font-size: clamp(0.82rem, 1.2vw, 0.92rem); line-height: 1.45; color: #f2f2f2; }
 
 .price {
   font-weight: 800;
   color: #fff;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   padding: clamp(3px, 0.8vw, 10px) clamp(8px, 2vw, 12px);
-  border-radius: clamp(8px, 1vw, 12px);
+  border-radius: 12px;
   display: inline-block;
-  margin-top: clamp(4px, 0.8vw, 6px);
+  margin-top: 6px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   background: linear-gradient(90deg, #ff6b6b, #ff4747, #ff6b6b);
   background-size: 200% 100%;
   animation: gradientMove 3s ease infinite;
   transition: background 0.3s ease;
 }
+.price.highlight { background: linear-gradient(90deg, #00d2ff, #3a7bd5); padding: clamp(4px,1vw,12px) clamp(10px,2vw,12px); font-weight:900; text-shadow: 1px 1px 2px rgba(197,0,0,0.6); }
 
-.price.highlight {
-  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-  padding: clamp(4px, 1vw, 12px) clamp(10px, 2vw, 12px);
-  font-weight: 900;
-  text-shadow: 1px 1px 2px rgba(197,0,0,0.6);
-}
+.card:hover { transform: scale(1.04); box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6); }
+.card:hover h2 { color: #ff6b6b; transition: color 0.3s ease; }
+.card.zoomed { transform: scale(1.1); box-shadow: 0 14px 40px rgba(128,0,0,0.8); z-index: 10; }
 
-/* Hover efecto zoom y sombra color vino */
-.card:hover {
-  transform: scale(1.04);
-  box-shadow: 0 8px 20px rgba(128, 0, 0, 0.6);
-}
-
-.card:hover h2 {
-  color: #ff6b6b;
-  transition: color 0.3s ease;
-}
-
-.card.zoomed {
-  transform: scale(1.1);
-  box-shadow: 0 14px 40px rgba(128, 0, 0, 0.8);
-  z-index: 10;
-}
-
-/* Animaciones */
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-
-  header { gap: 12px; padding: 10px; }
-  header h1, header .titulo { font-size: 1.1rem; }
-  header img.logo { width: 60px; }
-  nav { width: 90%; gap: 6px; }
- 
-  /* Ajuste WhatsApp */
-  header .btn-whatsapp {
-    font-size: clamp(0.7rem, 2vw, 0.85rem);
-    padding: clamp(3px, 1vw, 6px) clamp(6px, 2vw, 10px);
-  }
-  header .btn-whatsapp img {
-    width: clamp(16px, 4vw, 22px);
-  }
-}
-
-@media (max-width: 400px) {
-  header h1, header .titulo { font-size: 1rem; }
-  header img.logo { width: 50px; }
-  
-  nav { width: 95%; }
-
-  /* Ajuste WhatsApp */
-  header .btn-whatsapp {
-    font-size: 0.75rem;
-    padding: 3px 6px;
-  }
-  header .btn-whatsapp img {
-    width: 16px;
-  }
-}
-
-/* 📍 Footer */
+/* =========================
+   📌 FOOTER
+========================= */
 footer {
   width: 100%;
   background: rgba(0,0,0,0.6);
@@ -504,20 +349,8 @@ footer {
   padding: 8px 10px;
   font-family: Arial, sans-serif;
 }
-
-footer .footer-direccion p {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  line-height: 1.3;
-}
-
-footer .footer-botones {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
+footer .footer-direccion p { margin: 0 0 8px 0; font-size: 14px; line-height: 1.3; }
+footer .footer-botones { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
 footer .footer-botones a {
   display: inline-flex;
   align-items: center;
@@ -532,70 +365,21 @@ footer .footer-botones a {
   white-space: nowrap;
   transition: background 0.3s, transform 0.2s;
 }
+footer .btn-mapa { background-color: #b22222; color: #fff; border-radius: 20px; }
+footer .btn-mapa:hover { background-color: #a11d1d; transform: translateY(-2px); }
 
-footer .btn-mapa {
-  background-color: #b22222;
-  color: #fff;
-  border-radius: 20px;
-}
+/* =========================
+   📌 ANIMACIONES
+========================= */
+@keyframes aparecer { from { opacity: 0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes zoom { from { opacity:0; transform: scale(.95);} to { opacity:1; transform: scale(1); } }
+@keyframes gradientMove { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+@keyframes brilloSuave { 0%  { text-shadow: 0 0 3px #fff; } 50%  { text-shadow: 0 0 5px #fff, 0 0 10px #fff; } 100% { text-shadow: 0 0 3px #fff; }}
 
-footer .btn-mapa:hover {
-  background-color: #a11d1d;
-  transform: translateY(-2px);
-}
+/* =========================
+   📌 RESPONSIVE TARJETAS
+========================= */
+@media (max-width: 900px) { .card img { height: clamp(140px, 18vw, 200px); } .card h2 { font-size: clamp(1rem, 2vw, 1.5rem); } .card p.desc { font-size: clamp(0.75rem,1.3vw,0.9rem); } .price { font-size: clamp(0.8rem,1.5vw,0.9rem); padding: 3px 8px; } }
+@media (max-width: 600px) { .grid { gap: 10px; } }
 
-footer .btn-whatsapp {
-  background-color: #25d366;
-  color: #fff;
-}
-
-footer .btn-whatsapp img {
-  width: 20px;
-  height: 20px;
-}
-
-footer .btn-whatsapp:hover {
-  background-color: #1ebe57;
-  transform: translateY(-2px);
-}
-
-/* Animaciones */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoom {
-  from { opacity: 0; transform: scale(.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes brilloSuave {
-  0% { text-shadow: 0 0 5px var(--color-secundario); }
-  50% { text-shadow: 0 0 20px var(--color-secundario), 0 0 30px var(--color-principal); }
-  100% { text-shadow: 0 0 5px var(--color-secundario); }
-}
-
-header h1, header img {
-  animation: brilloSuave 3s infinite alternate;
-}
-
-/* 🔹 Quitar efecto verdoso al hacer clic */
-header img.logo:focus,
-.carousel button:focus,
-nav a:focus {
-  outline: none;
-  box-shadow: none;
-}
-/* ================= Escalado uniforme del header ================= */
-header .header-contenido {
-  transform-origin: center; /* punto de referencia del escalado */
-  flex-shrink: 0;
-}
-
-/* Escalado progresivo según tamaño de pantalla */
-@media (max-width: 1200px) { header .header-contenido { transform: scale(0.95); } }
-@media (max-width: 1000px) { header .header-contenido { transform: scale(0.9); } }
-@media (max-width: 800px)  { header .header-contenido { transform: scale(0.85); } }
-@media (max-width: 600px)  { header .header-contenido { transform: scale(0.8); } }
-@media (max-width: 400px)  { header .header-contenido { transform: scale(0.75); } }
