@@ -80,19 +80,19 @@ nav {
   overflow: hidden;
 }
 
-/* ================= Header final ultra-responsivo ================= */
+/* ================= Header Ultra Autoajuste ================= */
 header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(16px, 3vw, 24px);      /* espacio flexible entre elementos */
-  padding: clamp(16px, 3vw, 28px) clamp(8px, 2vw, 20px); /* más espacio interno arriba/abajo */
+  justify-content: center;
+  gap: clamp(6px, 0.5rem, 10px); /* gap base limitado */
+  padding: clamp(6px, 1rem, 16px) clamp(8px, 2rem, 20px);
   color: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;                       /* altura se ajusta al contenido */
+  height: auto;
   z-index: 1002;
   background-color: rgba(0,0,0,0.7);
   background-image: var(--fondo-header-img);
@@ -100,80 +100,125 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-  flex-wrap: nowrap;                  /* todo en línea */
-  overflow-x: hidden;                 /* sin scroll horizontal */
-  overflow-y: hidden;                 /* sin scroll vertical */
+  flex-wrap: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* Transición suave en todo */
+  transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Logo redondo adaptativo ---------------- */
+/* ---------------- Logo ---------------- */
 header img.logo {
-  height: clamp(40px, 8vw, 60px);
-  width: clamp(40px, 8vw, 60px);     /* asegura que sea cuadrado */
-  border-radius: 50%;                 /* completamente redondo */
-  box-shadow: 0px 1px 5px #000000 inset, 0px 0px 10px 1px #FFFFFF;
+  height: clamp(36px, calc(36px + 1vw), 60px);
+  width: clamp(36px, calc(36px + 1vw), 60px);
+  max-width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
+  flex-grow: 0;
+  transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Título adaptativo ---------------- */
+/* ---------------- Título Ultra Adaptativo ---------------- */
 header h1, header h2, header .titulo {
   margin: 0;
   padding: 0;
-  font-size: clamp(0.8rem, 4vw, 2rem);
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-  animation: brilloSuave 3s infinite alternate;
-  white-space: nowrap;    /* mantiene texto en línea */
-  flex-shrink: 1;         /* se reduce si hace falta */
-  min-width: 0;           /* permite reducción correcta */
-  overflow: hidden;       /* evita recorte extraño */
-  text-overflow: ellipsis; /* opcional: agrega “...” si no cabe */
+  font-size: clamp(0.5rem, 1.5vw, 2rem);
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-width: 120px;
+  max-width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Contenedor de redes adaptativo ---------------- */
+/* ---------------- Contenedor redes ---------------- */
 header .redes {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 2vw, 12px); 
-  margin-left: auto;       /* empuja contenedor a la derecha */
-  flex-shrink: 1;          
-  min-width: 0;           
-}
-
-/* ---------------- Iconos de redes ---------------- */
-header .redes img {
-  height: clamp(18px, 6vw, 35px);
-  width: auto;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+  gap: clamp(4px, 0.5rem, 10px);
   flex-shrink: 0;
+  flex-grow: 0;
+  margin-left: clamp(6px, 1rem, 12px);
+  transition: all 0.3s ease-in-out;
 }
 
-header .redes img:hover {
-  transform: scale(1.1);
-}
-
-/* ---------------- Botón WhatsApp ---------------- */
+/* ---------------- Iconos redes ---------------- */
+header .redes img,
 header .redes a.whatsapp img {
-  height: clamp(22px, 7vw, 40px);
+  height: clamp(16px, 2rem, 35px);
   width: auto;
+  max-height: 35px;
   flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
 }
 
-/* ---------------- Media Query para pantallas muy pequeñas ---------------- */
-@media (max-width: 320px) {
+header .redes img:hover,
+header .redes a.whatsapp img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ---------------- Media Queries Inteligentes ---------------- */
+@media (max-width: 1200px) {
+  header h1, header h2, header .titulo {
+    max-width: 48%;
+    font-size: clamp(0.5rem, 1.4vw, 1.8rem);
+  }
+  header img.logo { max-width: 58px; }
+  header .redes img, header .redes a.whatsapp img { max-height: 34px; }
+}
+
+@media (max-width: 1024px) {
+  header h1, header h2, header .titulo {
+    max-width: 50%;
+    font-size: clamp(0.5rem, 1.3vw, 1.6rem);
+  }
+  header img.logo { max-width: 55px; }
+  header .redes img, header .redes a.whatsapp img { max-height: 32px; }
+}
+
+@media (max-width: 768px) {
+  header h1, header h2, header .titulo {
+    max-width: 55%;
+    font-size: clamp(0.5rem, 2vw, 1.4rem);
+  }
+  header img.logo { max-width: 50px; }
+  header .redes img, header .redes a.whatsapp img { max-height: 28px; }
+}
+
+@media (max-width: 480px) {
   header {
-    padding: 8px 8px;  /* padding mínimo */
-    gap: 8px;          /* reduce espacio entre elementos */
+    gap: clamp(2px, 3vw, 8px);
+    padding: clamp(4px, 2vw, 8px);
   }
   header h1, header h2, header .titulo {
-    font-size: clamp(0.7rem, 3.5vw, 1.2rem);
+    max-width: 60%;
+    font-size: clamp(0.5rem, 5vw, 1rem);
   }
-  header img.logo {
-    height: clamp(30px, 7vw, 50px);
-    width: clamp(30px, 7vw, 50px);
+  header img.logo { max-width: 42px; }
+  header .redes img, header .redes a.whatsapp img { max-height: 26px; }
+}
+
+@media (max-width: 350px) {
+  header h1, header h2, header .titulo {
+    max-width: 65%;
+    font-size: clamp(0.45rem, 4.5vw, 0.9rem);
   }
-  header .redes img, header .redes a.whatsapp img {
-    height: clamp(16px, 5vw, 28px);
+  header img.logo { max-width: 38px; }
+  header .redes img, header .redes a.whatsapp img { max-height: 24px; }
+}
+
+/* ---------------- Ajuste Dinámico de Gaps según pantalla ---------------- */
+@media (min-width: 1600px) {
+  header {
+    gap: clamp(6px, 0.5rem, 10px); /* evita separación excesiva en pantallas enormes */
   }
 }
 
