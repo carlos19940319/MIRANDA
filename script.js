@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1️⃣ Fade-in inicial
   document.body.classList.add('show');
@@ -23,16 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4️⃣ Toggle zoom para tarjetas
+  // 4️⃣ Toggle zoom al centro para tarjetas
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
     card.addEventListener('click', () => {
-      // Quitar zoom de otras tarjetas
+      // Quitar 'selected' de otras tarjetas
       cards.forEach(c => {
-        if (c !== card) c.classList.remove('zoomed');
+        if (c !== card) c.classList.remove('selected');
       });
-      // Alternar zoom en la tarjeta clickeada
-      card.classList.toggle('zoomed');
+      // Alternar 'selected' en la tarjeta clickeada
+      card.classList.toggle('selected');
+    });
+  });
+
+  // 5️⃣ Cerrar tarjeta al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    cards.forEach(card => {
+      if (!card.contains(e.target)) {
+        card.classList.remove('selected');
+      }
     });
   });
 });
