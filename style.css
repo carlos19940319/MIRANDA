@@ -138,25 +138,36 @@ header .redes a.whatsapp img:hover {
   transform: scale(1.1);
 }
 
-/* ---------------- BOTÓN WHATSAPP ---------------- */
+/* ---------------- BOTÓN WHATSAPP SOLO ICONO ---------------- */
 header a.whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 12px);
-
-  color: #fff;
-  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
-  font-weight: bold;
-  border-radius: 50px;
+  justify-content: center; /* centra el icono */
+  padding: 0;              /* elimina espacio extra */
+  gap: 0;                  /* sin separación */
+  background: none;        /* elimina fondo verde */
+  color: inherit;          /* mantiene el color del header */
+  font-size: 0;            /* oculta texto */
+  border-radius: 0;        /* sin bordes redondeados */
   text-decoration: none;
   flex-shrink: 0;
   white-space: nowrap;
-  transition: transform 0.3s ease-in-out, background 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
-header a.whatsapp img { width: clamp(16px, 3vw, 22px); height: auto; }
-header a.whatsapp:hover { transform: scale(1.05); background: #1ebe57; }
 
+/* Ajuste del icono dentro del botón */
+header a.whatsapp img {
+  width: clamp(16px, 3vw, 22px);
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover solo agranda el icono, sin fondo */
+header a.whatsapp:hover {
+  transform: scale(1.1);
+  background: none;
+}
 /* ---------------- MEDIA QUERIES HEADER ---------------- */
 @media (max-width: 1200px) { header h1, header h2, header .titulo { max-width: 45%; } header img.logo { max-width: 58px; } header .redes img, header .redes a.whatsapp img { max-height: 34px; } }
 @media (max-width: 1024px) { header h1, header h2, header .titulo { max-width: 45%; font-size: clamp(0.5rem, 1.3vw, 1.6rem); } header img.logo { max-width: 55px; } header .redes img, header .redes a.whatsapp img { max-height: 32px; } }
