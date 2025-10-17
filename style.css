@@ -423,9 +423,9 @@ body.show {
 ========================= */
 .card img {
   width: 100%;          /* ocupa todo el ancho del card */
-  height: auto;         /* altura automática según proporción */
+  height: 100%;         /* altura automática según proporción */
   display: block;
-  object-fit: contain;  /* mantiene toda la imagen visible sin recortar */
+  object-fit: cover;  /* mantiene toda la imagen visible sin recortar */
   transition: all 0.5s ease;
 }
 
