@@ -411,6 +411,7 @@ body.show {
 .grid .card:nth-child(11) { animation-delay: 3.2s; }
 .grid .card:nth-child(12) { animation-delay: 3.5s; }
 .grid .card:nth-child(13) { animation-delay: 3.8s; }
+.grid .card:nth-child(14) { animation-delay: 4.1s; }
 /* Hover efecto zoom y sombra suave */
 .card:hover {
   transform: scale(1.04);
