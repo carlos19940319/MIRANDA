@@ -545,6 +545,7 @@ body.show {
 footer {
   width: 100%;
   background: rgba(0,0,0,0.6);
+   border-radius: 20PX 20PX 0 0;
   color: #fff;
   text-align: center;
   padding: 8px 10px;
