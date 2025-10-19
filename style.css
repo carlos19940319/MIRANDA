@@ -426,9 +426,10 @@ body.show {
 ========================= */
 .card img {
   width: 100%;
-  height: 100;
+  height: auto;
   max-height: 500px;
   display: block;
+   object-fit: fill;   
   border-radius: 20px;    /* bordes suaves */
   box-shadow: 0 5px 5px rgba(255,255,255,0.3); /* sombra para efecto flotante */
   margin: 0 auto;         /* centra la imagen dentro de la tarjeta */
