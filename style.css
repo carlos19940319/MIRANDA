@@ -424,7 +424,7 @@ body.show {
 ========================= */
 .card img {
   width: 100%;
-  height: AUTO%;
+  height: 100%;
 display: block;
   object-fit: cover;
   border-radius: 20px;
