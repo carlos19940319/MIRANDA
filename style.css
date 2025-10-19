@@ -423,14 +423,14 @@ body.show {
    📌 IMAGEN RESPONSIVA COMPLETA
 ========================= */
 .card img {
-  width: 100%;
-  height: auto%;
-display: block;
-object-fit: scale-down;
-  border-radius: 20px;
-  margin-bottom: 0px;
-  box-shadow: 0 0px 7px 3px rgba(255, 255, 255, 0.3);
+  width: 100%;          /* ocupa todo el ancho del card */
+  height: 100%;         /* altura automática según proporción */
+  display: block;
+  object-fit: scale-down;  /* mantiene toda la imagen visible sin recortar */
+  transition: all 0.5s ease;
+  box-shadow: 0 0px 5px 2px rgba(255, 255, 255, 0.3);
 }
+
 
 /* =========================
    📌 CONTENIDO DE LA TARJETA
