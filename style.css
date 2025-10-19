@@ -435,7 +435,7 @@ body.show {
    📌 CONTENIDO DE LA TARJETA
 ========================= */
 .card .content {
-  padding: 16px;
+  padding: auto;
   text-align: center;
   border-radius: 0 0 20px 20px;
   color: var(--color-principal, #fff);
