@@ -584,3 +584,7 @@ footer .btn-mapa:hover { background-color: #a11d1d; transform: translateY(-2px);
 ========================= */
 @media (max-width: 900px) { .card img { height: clamp(140px, 18vw, 200px); } .card h2 { font-size: clamp(1rem, 2vw, 1.5rem); } .card p.desc { font-size: clamp(0.75rem,1.3vw,0.9rem); } .price { font-size: clamp(0.8rem,1.5vw,0.9rem); padding: 3px 8px; } }
 @media (max-width: 600px) { .grid { gap: 10px; } 
+/* Quita el cuadro verdoso de selección en móviles */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
